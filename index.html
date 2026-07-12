@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============ SEO ============ -->
+  <title>Japanese Head Spa in Gold Coast (Southport) | Dreamin' Head Spa &amp; Sculpture</title>
+  <meta name="description" content="Dreamin' Head Spa &amp; Sculpture — the ultimate Japanese wet head spa on the Gold Coast. Private-suite scalp care, trichology-informed treatments and precision cuts in Southport QLD. From $220, blow-dry included. Book online.">
+  <link rel="canonical" href="https://dreaminheadspa.com.au/">
+
+  <!-- ============ OGP ============ -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Japanese Head Spa in Gold Coast (Southport) | Dreamin'">
+  <meta property="og:description" content="Japanese-quality head spa, scalp care &amp; hair sculpture in a fully private suite. Southport, Gold Coast. Book now.">
+  <meta property="og:url" content="https://dreaminheadspa.com.au/">
+  <meta property="og:image" content="https://dreaminheadspa.com.au/assets/og-image.jpg"><!-- TODO: replace with real OG image (1200x630) -->
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ============ Structured data: LocalBusiness / HairSalon ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Dreamin' Head Spa & Sculpture",
+    "description": "Japanese head spa, scalp care and trichology-informed hair sculpture on the Gold Coast.",
+    "image": "https://dreaminheadspa.com.au/assets/og-image.jpg",
+    "url": "https://dreaminheadspa.com.au/",
+    "telephone": "+61452345060",
+    "priceRange": "$85-$260",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suite 16, 115-157 Queen Street",
+      "addressLocality": "Southport",
+      "addressRegion": "QLD",
+      "postalCode": "4215",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -27.9686, "longitude": 153.4098 },
+    "sameAs": ["https://www.instagram.com/dreamin_headspa_and_sculpture/"],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "18:00" }
+    ]
+  }
+  </script>
+
+  <!-- Fonts: elegant serif for headings, clean sans for body (only external dependency) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================================
+     HEADER — persistent nav + always-visible Book Now CTA.
+     Becomes solid on scroll (see script.js). -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="Dreamin' Head Spa &amp; Sculpture — home">
+      <img src="assets/logo-light.png" alt="Dreamin' Head Spa &amp; Sculpture" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="index.html" class="is-current">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Service Menu</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="nav-gift">Gift</a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="nav-insta">Instagram</a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Language toggle scaffold (EN main / JA secondary) -->
+      <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-header">Book Now</a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     HERO — full-screen, single H1, primary conversion point.
+     Background rotates through 3 images (see script.js). -->
+<section class="hero">
+  <div class="hero-bg" id="heroSlideshow" aria-hidden="true">
+    <div class="hero-slide is-active" style="background-image:url('assets/hero-1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-2.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-3.jpg');"></div>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-kicker">Southport &middot; Gold Coast &middot; QLD</p>
+    <p class="script-word" aria-hidden="true">Dreamin&rsquo;</p>
+    <h1>The Ultimate Japanese<br>Head Spa on the Gold&nbsp;Coast</h1>
+    <p class="hero-sub">Japanese-quality technique meets Gold Coast serenity.<br class="hide-sm">
+      A fully private sanctuary for scalp care, deep relaxation and precision hair sculpture.</p>
+    <div class="hero-cta">
+      <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
+      <a href="menu.html" class="btn btn-ghost btn-lg">View Menu</a>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#about" aria-label="Scroll to About">
+    <span class="scroll-line" aria-hidden="true"></span>Scroll
+  </a>
+</section>
+
+<!-- ================================================================
+     WHY DREAMIN' — trust builders for a discerning clientele. -->
+<section class="section section-cream" id="about">
+  <div class="container">
+    <p class="section-kicker fade-in">Why Dreamin&rsquo;</p>
+    <h2 class="section-title fade-in">A head spa <em>without compromise</em></h2>
+    <p class="section-lead fade-in">Every detail — from consultation to the final blow-dry — is designed for those who expect nothing left to chance.</p>
+
+    <div class="why-grid">
+      <article class="why-card fade-in">
+        <span class="why-num" aria-hidden="true">01</span>
+        <h3>90–135 min full service</h3>
+        <p>No shortened “express” menus. Every session is a complete ritual, unhurried from beginning to end.</p>
+      </article>
+      <article class="why-card fade-in">
+        <span class="why-num" aria-hidden="true">02</span>
+        <h3>Blow-dry included</h3>
+        <p>You leave styled and ready — never with wet hair. The finish is part of the treatment, not an extra.</p>
+      </article>
+      <article class="why-card fade-in">
+        <span class="why-num" aria-hidden="true">03</span>
+        <h3>Fully private suite</h3>
+        <p>One guest at a time in a completely private room. No open floors, no waiting beside strangers.</p>
+      </article>
+      <article class="why-card fade-in">
+        <span class="why-num" aria-hidden="true">04</span>
+        <h3>20+ years of mastery</h3>
+        <p>Trichology-informed scalp diagnosis and Japanese salon technique, refined over two decades.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     WHAT IS A HEAD SPA? — educates first-time visitors visually:
+     scalp health → healthy hair; dry vs wet types; our technique. -->
+<section class="section section-cream section-tight" id="headspa">
+  <div class="container">
+    <p class="section-kicker fade-in">What is a Head Spa?</p>
+    <h2 class="section-title fade-in">A healthy scalp grows <em>glowing hair</em></h2>
+    <p class="section-lead fade-in">A head spa is far more than a hair wash. It keeps the scalp in healthy condition — the foundation from which strong, glowing hair grows.</p>
+
+    <div class="spa-types">
+      <article class="spa-type fade-in">
+        <p class="menu-tag">Type 01</p>
+        <h3>Dry Head Spa</h3>
+        <p>Performed without water, aimed purely at relaxation. Pleasant — but the scalp itself is left untreated.</p>
+      </article>
+      <article class="spa-type is-dreamin fade-in">
+        <p class="menu-tag">Type 02 — The Dreamin&rsquo; Method</p>
+        <h3>Wet Head Spa</h3>
+        <p>Deep relaxation <em>and</em> true treatment care: cleansing away build-up, then delivering nutrients and moisture to hair and scalp.</p>
+        <p class="spa-type-note">Dreamin&rsquo; is a wet-type head spa.</p>
+      </article>
+    </div>
+
+    <div class="contact-grid technique-row">
+      <!-- TODO: replace with photo of treatment technique / massage -->
+      <div class="contact-map img-placeholder img-arch fade-in" role="img" aria-label="Placeholder: close-up of head spa massage technique in the private suite">
+        <span class="img-label">IMAGE</span>
+      </div>
+      <div class="fade-in">
+        <p class="menu-tag" style="color:var(--gold);">Inside the Dreamin&rsquo; Method</p>
+        <h3 class="technique-title">Why our wet head spa works: <em>a combination of crafts</em></h3>
+        <p class="technique-text">The “treatment care” above comes from technique. We layer methods passed down through the Japanese beauty industry with the traditions of Indian head massage — first lifting away impurities, then supplying the nutrients your hair and scalp need.</p>
+        <p class="technique-text">And because no two scalps are alike, products and methods are chosen for <em>your</em> condition on the day — never from a fixed routine — in a completely private suite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     MENU — pricing cards, each with its own booking CTA. -->
+<section class="section section-dark" id="menu">
+  <div class="container">
+    <p class="section-kicker fade-in">Menu</p>
+    <h2 class="section-title fade-in">Treatments &amp; <em>pricing</em></h2>
+    <p class="section-lead fade-in">Transparent pricing. Every head spa includes consultation, treatment and a full blow-dry finish.</p>
+
+    <div class="menu-grid">
+      <!-- Signature card is visually featured -->
+      <article class="menu-card menu-featured fade-in">
+        <p class="menu-tag">Signature</p>
+        <h3>Head Spa &amp; Cut</h3>
+        <p class="menu-duration">120–135 min</p>
+        <p class="menu-price"><sup>$</sup>260<span class="gst">inc. GST</span></p>
+        <ul class="menu-includes">
+          <li>Scalp diagnosis &amp; consultation</li>
+          <li>Full Japanese head spa ritual</li>
+          <li>Precision cut &amp; sculpture</li>
+          <li>Blow-dry finish</li>
+        </ul>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-block">Book This</a>
+      </article>
+
+      <article class="menu-card fade-in">
+        <h3>Head Spa &amp; Dry</h3>
+        <p class="menu-duration">90–120 min</p>
+        <p class="menu-price"><sup>$</sup>220<span class="gst">inc. GST</span></p>
+        <ul class="menu-includes">
+          <li>Scalp diagnosis &amp; consultation</li>
+          <li>Full Japanese head spa ritual</li>
+          <li>Blow-dry finish</li>
+        </ul>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-outline btn-block">Book This</a>
+      </article>
+
+      <article class="menu-card fade-in">
+        <h3>Cut &amp; Style</h3>
+        <p class="menu-duration">60–90 min <span class="duration-note">(depending on hair length)</span></p>
+        <p class="menu-price"><span class="price-split">Men <sup>$</sup>85</span><span class="price-split">Ladies <sup>$</sup>140</span><span class="gst">inc. GST</span></p>
+        <ul class="menu-includes">
+          <li>Consultation</li>
+          <li>Precision cut</li>
+          <li>Style finish</li>
+        </ul>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-outline btn-block">Book This</a>
+      </article>
+
+      <article class="menu-card fade-in">
+        <h3>Wash &amp; Blow Dry</h3>
+        <p class="menu-duration">60–90 min <span class="duration-note">(depending on hair length)</span></p>
+        <p class="menu-price"><sup>$</sup>110<span class="gst">inc. GST</span></p>
+        <ul class="menu-includes">
+          <li>Relaxing shampoo</li>
+          <li>Professional blow-dry styling</li>
+        </ul>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-outline btn-block">Book This</a>
+      </article>
+
+      <article class="menu-card menu-addon fade-in">
+        <p class="menu-tag">Add-on</p>
+        <h3>Deep Treatment</h3>
+        <p class="menu-duration">+15–20 min</p>
+        <p class="menu-price"><sup>+$</sup>30<span class="gst">inc. GST</span></p>
+        <ul class="menu-includes">
+          <li>Intensive hair &amp; scalp mask</li>
+          <li>Add to any service</li>
+        </ul>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-outline btn-block">Add on Booking</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     EXPERIENCE — the journey in 4 steps; reduces first-visit anxiety. -->
+<section class="section section-cream" id="experience">
+  <div class="container">
+    <p class="section-kicker fade-in">Experience</p>
+    <h2 class="section-title fade-in">Your visit, <em>step by step</em></h2>
+
+    <ol class="steps">
+      <li class="step fade-in">
+        <span class="step-chevron">Step 1</span>
+        <div class="step-media img-placeholder" role="img" aria-label="Placeholder: online booking on a phone"><span class="img-label">IMAGE</span></div>
+        <h3>Reserve online</h3>
+        <p>Choose your treatment and time in under a minute. Your suite is reserved exclusively for you.</p>
+      </li>
+      <li class="step fade-in">
+        <span class="step-chevron">Step 2</span>
+        <div class="step-media img-placeholder" role="img" aria-label="Placeholder: one-on-one scalp consultation with microscope camera"><span class="img-label">IMAGE</span></div>
+        <h3>Consultation &amp; scalp diagnosis</h3>
+        <p>A one-on-one consultation and trichology-informed scalp analysis shape a treatment made for you.</p>
+      </li>
+      <li class="step fade-in">
+        <span class="step-chevron">Step 3</span>
+        <div class="step-media img-placeholder" role="img" aria-label="Placeholder: head spa treatment in a dim private room"><span class="img-label">IMAGE</span></div>
+        <h3>The head spa ritual</h3>
+        <p>Warm water, layered massage techniques and complete quiet. Most guests drift off within minutes.</p>
+      </li>
+      <li class="step fade-in">
+        <span class="step-chevron">Step 4</span>
+        <div class="step-media img-placeholder" role="img" aria-label="Placeholder: finished blow-dry styling"><span class="img-label">IMAGE</span></div>
+        <h3>Finish &amp; aftercare</h3>
+        <p>A full blow-dry and styling, with personal advice to keep your scalp and hair at their best.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================
+     GALLERY / INSTAGRAM — social proof grid.
+     WordPress migration: replace this grid with Smash Balloon embed. -->
+<section class="section section-cream section-tight" id="gallery">
+  <div class="container">
+    <p class="section-kicker fade-in">Gallery</p>
+    <h2 class="section-title fade-in">Follow us on Instagram <span class="ig-count">12K+ followers</span></h2>
+
+    <div class="ig-grid fade-in">
+      <!-- Each tile = one Instagram post embed placeholder -->
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="ig-tile img-placeholder" aria-label="Placeholder: Instagram post — head spa treatment"><span class="img-label">IMAGE</span></a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="ig-tile img-placeholder" aria-label="Placeholder: Instagram post — salon interior"><span class="img-label">IMAGE</span></a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="ig-tile img-placeholder" aria-label="Placeholder: Instagram post — before and after styling"><span class="img-label">IMAGE</span></a>
+    </div>
+
+    <div class="center fade-in">
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="btn btn-outline-dark">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     VOICE — testimonials (placeholder copy). -->
+<section class="section section-dark" id="voice">
+  <div class="container">
+    <p class="section-kicker fade-in">Voice</p>
+    <h2 class="section-title fade-in">What our guests <em>say</em></h2>
+
+    <div class="voice-grid">
+      <figure class="voice-card fade-in">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Placeholder review — replace with a real Google review. The most deeply relaxing 90 minutes I've had in years; I fell asleep within minutes.”</blockquote>
+        <figcaption>A. Client — Surgeon, Southport</figcaption>
+      </figure>
+      <figure class="voice-card fade-in">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Placeholder review — replace with a real Google review. True Japanese quality. The private room and attention to detail are unmatched on the Gold Coast.”</blockquote>
+        <figcaption>B. Client — Lawyer, Broadbeach</figcaption>
+      </figure>
+      <figure class="voice-card fade-in">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Placeholder review — replace with a real Google review. My scalp has never felt healthier, and I walked out styled and ready for dinner.”</blockquote>
+        <figcaption>C. Client — Accountant, Main Beach</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ACCESS / CONTACT — address, hours, map, final conversion CTA. -->
+<section class="section section-cream" id="contact">
+  <div class="container">
+    <p class="section-kicker fade-in">Access &amp; Contact</p>
+    <h2 class="section-title fade-in">Visit us in <em>Southport</em></h2>
+
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <dl>
+          <dt>Address</dt>
+          <dd>Suite 16, 115–157 Queen Street,<br>Southport QLD 4215, Australia</dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+61452345060">0452 345 060</a></dd>
+          <dt>Hours</dt>
+          <dd>Tue–Sat 9:00am – 6:00pm<br><span class="muted">Closed Sun &amp; Mon · By appointment only</span></dd>
+          <dt>Parking</dt>
+          <dd>Street and nearby centre parking available.<br><span class="muted">Placeholder — confirm parking details.</span></dd>
+        </dl>
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
+      </div>
+
+      <!-- Google Maps embed placeholder: replace with <iframe> from Google Maps "Share > Embed a map" -->
+      <div class="contact-map img-placeholder fade-in" role="img" aria-label="Placeholder: Google Map showing Suite 16, 115-157 Queen Street, Southport">
+        <span class="img-label">MAP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="logo logo-footer">
+      <img src="assets/logo-light.png" alt="Dreamin' Head Spa &amp; Sculpture" class="logo-img">
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="about.html">About</a>
+      <a href="menu.html">Service Menu</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">Gift Cards</a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener">Instagram</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+    <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Mobile sticky Book Now bar (shows after scrolling past hero) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-brand">
+      <span class="sticky-cta-script" aria-hidden="true">Dreamin&rsquo;</span>
+      <p class="sticky-cta-text">Japanese wet head spa <span class="sticky-cta-dot" aria-hidden="true">&middot;</span> Southport, Gold Coast</p>
+    </div>
+    <div class="sticky-cta-actions">
+      <a href="tel:+61452345060" class="btn btn-ghost sticky-cta-call">0452 345 060</a>
+      <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
