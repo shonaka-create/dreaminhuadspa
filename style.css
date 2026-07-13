@@ -316,7 +316,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(43,38,34,0.72) 0%, rgba(43,38,34,0.55) 45%, rgba(43,38,34,0.78) 100%);
 }
-.hero-content { position: relative; z-index: 2; padding: 120px 24px 90px; max-width: 860px; }
+/* The bottom padding reserves room for .hero-scroll, which is absolutely
+   positioned at the foot of the hero. At 90px the CTA buttons collided with
+   it on shorter phones, where they wrap to two rows. */
+.hero-content { position: relative; z-index: 2; padding: 120px 24px 132px; max-width: 860px; }
 .hero-kicker {
   font-size: 12px;
   font-weight: 500;
@@ -363,6 +366,12 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: rgba(255, 253, 249, 0.65);
 }
 .hero-scroll:hover { color: var(--gold-soft); }
+/* Phones have the least room between the CTAs and the foot of the hero, so the
+   cue is shorter and sits closer to the edge there. */
+@media (max-width: 639px) {
+  .hero-scroll { bottom: 18px; gap: 7px; }
+  .scroll-line { height: 28px; }
+}
 /* letter-spacing adds a trailing gap after the final S, which pushes the
    glyphs left of the line when the flex box centres them. Reclaim it. */
 .scroll-label { margin-right: -0.35em; }
