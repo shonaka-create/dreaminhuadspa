@@ -1001,8 +1001,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   inset: 0;
   z-index: 0;
   background: url("assets/37c173e23a55244ef5e625ebebb84173-scaled.jpg") center 66% / cover no-repeat;
-  filter: blur(3px) brightness(0.62) saturate(0.95);
-  transform: scale(1.06);
+  /* The shot is dominated by a large white card and the copy on top is white,
+     so this has to come down hard — at anything brighter the headline sits on
+     a pale slab and the card's own logotype competes with it. */
+  filter: blur(5px) brightness(0.36) saturate(0.5) sepia(0.42);
+  transform: scale(1.08);
   pointer-events: none;
 }
 .cta-band > * { position: relative; z-index: 1; }
