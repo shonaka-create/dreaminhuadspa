@@ -148,7 +148,7 @@
 <!-- ================================================================
      WHAT IS A HEAD SPA? — educates first-time visitors visually:
      scalp health → healthy hair; dry vs wet types; our technique. -->
-<section class="section section-cream section-tight" id="headspa">
+<section class="section section-cream" id="headspa">
   <div class="container">
     <p class="section-kicker fade-in">What is a Head Spa?</p>
     <h2 class="section-title fade-in">A healthy scalp grows <em>glowing hair</em></h2>
@@ -180,18 +180,29 @@
         </div>
       </article>
     </div>
+  </div>
+</section>
 
-    <div class="contact-grid technique-row">
-      <!-- TODO: replace with photo of treatment technique / massage -->
-      <div class="contact-map img-placeholder img-arch fade-in" role="img" aria-label="Placeholder: close-up of head spa massage technique in the private treatment space">
-        <span class="img-label">IMAGE</span>
-      </div>
-      <div class="fade-in">
-        <p class="menu-tag" style="color:var(--gold);">Inside the Dreamin&rsquo; Method</p>
-        <h3 class="technique-title">Why our wet head spa works: <em>a combination of crafts</em></h3>
-        <p class="technique-text">The “treatment care” above comes from technique. We layer methods passed down through the Japanese beauty industry with the traditions of Indian head massage — first lifting away impurities, then supplying the nutrients your hair and scalp need.</p>
-        <p class="technique-text">And because no two scalps are alike, products and methods are chosen for <em>your</em> condition on the day — never from a fixed routine, and always in a calm private space.</p>
-      </div>
+<!-- ================================================================
+     THE DREAMIN' METHOD — full-bleed photographic band.
+     Deliberately NOT another image-beside-text card: the photo runs the
+     full width and the copy sits on top of it, so this reads as a change
+     of gear after the two type cards above.
+
+     TO ADD THE PHOTO: drop the file in /assets, then replace
+       <div class="method-bg is-placeholder" ...>…</div>
+     with
+       <div class="method-bg" style="background-image:url('assets/method.jpg')" aria-hidden="true"></div>  -->
+<section class="method-band" id="method">
+  <div class="method-bg is-placeholder" aria-hidden="true"><span class="img-label">IMAGE</span></div>
+  <div class="method-scrim" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="method-panel fade-in">
+      <p class="section-kicker">Inside the Dreamin&rsquo; Method</p>
+      <h2>Why our wet head spa works: <em>a combination of crafts</em></h2>
+      <p>The “treatment care” above comes from technique. We layer methods passed down through the Japanese beauty industry with the traditions of Indian head massage — first lifting away impurities, then supplying the nutrients your hair and scalp need.</p>
+      <p>And because no two scalps are alike, products and methods are chosen for <em>your</em> condition on the day — never from a fixed routine, and always in a calm private space.</p>
     </div>
   </div>
 </section>
@@ -470,7 +481,7 @@
       <p class="sticky-cta-text">Japanese wet head spa <span class="sticky-cta-dot" aria-hidden="true">&middot;</span> Southport, Gold Coast</p>
     </div>
     <div class="sticky-cta-actions">
-      <a href="tel:+61452345060" class="btn btn-ghost sticky-cta-call">0452 345 060</a>
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="btn btn-shop sticky-cta-shop">Online Shop</a>
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
     </div>
   </div>
