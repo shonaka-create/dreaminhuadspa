@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Dreamin' Head Spa &amp; Sculpture — Japanese Head Spa, Gold Coast</title>
-  <meta name="description" content="The story behind Dreamin' Head Spa &amp; Sculpture — Japanese-quality scalp care, trichology-informed technique and a calm private space in Southport, Gold Coast.">
-  <link rel="canonical" href="https://dreaminheadspa.com.au/about.html">
+  <title>Journal | Dreamin' Head Spa &amp; Sculpture — Japanese Head Spa, Gold Coast</title>
+  <meta name="description" content="The Dreamin' journal — Takashi's story, guest experiences and practical scalp &amp; hair care advice from a Japanese head spa in Southport, Gold Coast.">
+  <link rel="canonical" href="https://dreaminheadspa.com.au/blog.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About | Dreamin' Head Spa &amp; Sculpture">
-  <meta property="og:description" content="Japanese-quality technique meets Gold Coast serenity. Our philosophy, our craft, our private space.">
-  <meta property="og:url" content="https://dreaminheadspa.com.au/about.html">
+  <meta property="og:title" content="Journal | Dreamin' Head Spa &amp; Sculpture">
+  <meta property="og:description" content="Takashi's story, guest experiences and practical scalp &amp; hair care advice from a Japanese head spa on the Gold Coast.">
+  <meta property="og:url" content="https://dreaminheadspa.com.au/blog.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -25,14 +25,13 @@
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="about.html" class="is-current">About</a>
+      <a href="about.html">About</a>
       <a href="menu.html">Service Menu</a>
-      <a href="blog.html">Journal</a>
+      <a href="blog.html" class="is-current">Journal</a>
       <a href="contact.html">Contact</a>
       <a href="https://www.instagram.com/dreamin_headspa_and_sculpture?igsh=MTk3MWZ1dmNlYXJmNA%3D%3D" target="_blank" rel="noopener" class="nav-insta">Instagram
         <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle class="ig-dot" cx="17.4" cy="6.7" r="1.15"/></svg>
       </a>
-      <!-- Online Shop is a header button on desktop; this entry only shows in the mobile drawer -->
       <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="nav-shop-mobile">Online Shop</a>
     </nav>
     <div class="header-actions">
@@ -47,82 +46,89 @@
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
-  <p class="hero-kicker">Our Story</p>
-  <h1>About <em>Dreamin&rsquo;</em></h1>
-  <p class="page-hero-sub">Japanese-quality technique, brought to the Gold Coast — one guest at a time.</p>
+  <p class="hero-kicker">Journal</p>
+  <h1>Notes from <em>the chair</em></h1>
+  <p class="page-hero-sub">Takashi's story, what guests take away from a session, and the scalp and hair advice we find ourselves giving most often.</p>
 </section>
 
-<!-- ============ PHILOSOPHY ============ -->
+<!-- ============ POSTS ============
+     Filter + grid. Each card carries data-cat; the buttons toggle
+     .is-hidden (see script.js). In WordPress these become categories —
+     "All" is the default view, exactly as here. -->
 <section class="section section-cream">
   <div class="container">
-    <div class="contact-grid">
-      <div class="fade-in">
-        <p class="section-kicker">Philosophy</p>
-        <h2 class="section-title">The art of doing one thing, <em>completely</em></h2>
-        <p class="section-lead" style="margin-bottom:24px;">Dreamin&rsquo; was founded on a simple conviction: a head spa should never be an add-on. It deserves the same devotion as any fine craft — unhurried time, a private space, and a practitioner who has spent a career mastering it.</p>
-        <p class="section-lead" style="margin-bottom:0;">Every appointment is a minimum of ninety minutes, always finished with a full blow-dry. Nothing rushed, nothing left to chance.</p>
-      </div>
-      <!-- TODO: replace with salon interior photograph -->
-      <div class="contact-map img-placeholder img-arch fade-in" role="img" aria-label="Placeholder: private treatment space interior with warm lighting">
-        <span class="img-label">IMAGE</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ THE ARTISAN ============ -->
-<section class="section section-dark">
-  <div class="container">
-    <div class="contact-grid">
-      <!-- TODO: replace with founder portrait -->
-      <div class="contact-map img-placeholder img-arch fade-in" role="img" aria-label="Placeholder: portrait of the founder and head spa artisan">
-        <span class="img-label">IMAGE</span>
-      </div>
-      <div class="fade-in">
-        <p class="section-kicker">The Artisan</p>
-        <h2 class="section-title">Twenty years of <em>Japanese craft</em></h2>
-        <p class="section-lead" style="margin-bottom:24px;">Trained in Japan and refined over two decades of salon work, our founder brings trichology-informed scalp diagnosis together with the layered massage techniques of the Japanese head spa tradition.</p>
-        <p class="section-lead" style="margin-bottom:0;">Placeholder — founder bio to be provided: training, career history, philosophy in her own words.</p>
-      </div>
+    <div class="blog-filters fade-in" role="group" aria-label="Filter articles by category">
+      <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" data-filter="owner" aria-pressed="false">Owner's Story</button>
+      <button class="filter-btn" data-filter="guest" aria-pressed="false">Guest Experiences</button>
+      <button class="filter-btn" data-filter="tips" aria-pressed="false">Hair &amp; Scalp Tips</button>
     </div>
-  </div>
-</section>
 
-<!-- ============ COMMITMENTS ============ -->
-<section class="section section-cream">
-  <div class="container">
-    <p class="section-kicker fade-in">Our Promise</p>
-    <h2 class="section-title fade-in">What every guest can <em>expect</em></h2>
-    <div class="why-grid">
-      <article class="why-card fade-in">
-        <span class="why-num" aria-hidden="true">01</span>
-        <h3>A private space</h3>
-        <p>A private treatment space kept for you alone during your visit — no open salon floor, no interruptions.</p>
+    <div class="post-grid" id="postGrid">
+
+      <!-- 01 — Owner's Story -->
+      <article class="post-card fade-in" data-cat="owner">
+        <!-- TODO: replace with a portrait of Takashi at work -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: Takashi at the shampoo stand in the treatment room">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Owner's Story</p>
+          <h3><a href="blog-japanese-head-spa-gold-coast.html">Why I brought the Japanese head spa to the Gold&nbsp;Coast</a></h3>
+          <p class="post-excerpt">Twenty years behind the chair, a flat shampoo stand shipped from Japan, and one thing I could not find in Australia.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
       </article>
-      <article class="why-card fade-in">
-        <span class="why-num" aria-hidden="true">02</span>
-        <h3>Unhurried time</h3>
-        <p>90 to 135 minutes per visit. The ritual sets the pace — never the clock.</p>
+
+      <!-- 02 — Guest Experiences -->
+      <article class="post-card fade-in" data-cat="guest">
+        <!-- TODO: replace with a photo of a guest mid-treatment (with permission) -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: guest relaxing during the head spa treatment">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Guest Experiences</p>
+          <h3><a href="blog-what-guests-say.html">“I didn't know my scalp could feel like this”</a></h3>
+          <p class="post-excerpt">What guests tell us after their first wet head spa — and the one comment we hear more than any other.</p>
+          <div class="post-meta">
+            <span>Dreamin' Team</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
       </article>
-      <article class="why-card fade-in">
-        <span class="why-num" aria-hidden="true">03</span>
-        <h3>A finished result</h3>
-        <p>Every service ends with a full professional blow-dry. You leave composed, styled, ready.</p>
+
+      <!-- 03 — Hair & Scalp Tips -->
+      <article class="post-card fade-in" data-cat="tips">
+        <!-- TODO: replace with a scalp-diagnosis / microscope camera photo -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: close-up scalp diagnosis with a microscope camera">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Hair &amp; Scalp Tips</p>
+          <h3><a href="blog-scalp-signs.html">Itchy scalp, oily roots, no volume: what your scalp is telling you</a></h3>
+          <p class="post-excerpt">Three signals we see every week in the chair, what usually causes them, and what actually helps.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
       </article>
-      <article class="why-card fade-in">
-        <span class="why-num" aria-hidden="true">04</span>
-        <h3>Informed care</h3>
-        <p>Trichology-based scalp diagnosis guides every treatment — considered, personal, precise.</p>
-      </article>
+
     </div>
+
+    <p class="post-empty" id="postEmpty">No articles in this category yet — more are on the way.</p>
   </div>
 </section>
 
 <!-- ============ CTA BAND ============ -->
 <section class="cta-band">
   <p class="hero-kicker">Reserve Your Time</p>
-  <h2>Experience it <em>for yourself</em></h2>
-  <p>Appointments are limited to preserve the quiet of the space. We recommend booking ahead.</p>
+  <h2>Read enough? <em>Feel it instead</em></h2>
+  <p>Ninety minutes is all it takes to understand what everything above is describing.</p>
   <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
 </section>
 
@@ -132,7 +138,6 @@
     <a href="index.html" class="logo logo-footer">
       <img src="assets/logo-light.png" alt="Dreamin' Head Spa &amp; Sculpture" class="logo-img">
     </a>
-    <!-- Mirrors the header CTA pair -->
     <div class="footer-actions">
       <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="btn btn-shop">Online Shop</a>
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>

@@ -77,4 +77,34 @@
       slides[current].classList.add("is-active");
     }, 6000);
   }
+
+  /* ---------- 6. Journal: category filter ----------
+     Cards carry data-cat; buttons carry data-filter. "all" shows everything,
+     which is the default state. Matches how a WordPress category filter
+     behaves, so the markup can be swapped for a loop later without touching
+     this logic. */
+  var filterBtns = document.querySelectorAll(".filter-btn");
+  var postCards = document.querySelectorAll(".post-card");
+  var postEmpty = document.getElementById("postEmpty");
+
+  if (filterBtns.length && postCards.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = btn.getAttribute("data-filter");
+        var shown = 0;
+
+        filterBtns.forEach(function (b) {
+          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+        });
+
+        postCards.forEach(function (card) {
+          var match = filter === "all" || card.getAttribute("data-cat") === filter;
+          card.classList.toggle("is-hidden", !match);
+          if (match) shown++;
+        });
+
+        if (postEmpty) postEmpty.classList.toggle("is-shown", shown === 0);
+      });
+    });
+  }
 })();

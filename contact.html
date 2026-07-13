@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://dreaminheadspa.com.au/contact.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,11 +27,16 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="menu.html">Service Menu</a>
+      <a href="blog.html">Journal</a>
       <a href="contact.html" class="is-current">Contact</a>
-      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="nav-gift">Gift</a>
-      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener" class="nav-insta">Instagram</a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture?igsh=MTk3MWZ1dmNlYXJmNA%3D%3D" target="_blank" rel="noopener" class="nav-insta">Instagram
+        <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle class="ig-dot" cx="17.4" cy="6.7" r="1.15"/></svg>
+      </a>
+      <!-- Online Shop is a header button on desktop; this entry only shows in the mobile drawer -->
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="nav-shop-mobile">Online Shop</a>
     </nav>
     <div class="header-actions">
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="btn btn-shop btn-header">Online Shop</a>
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-header">Book Now</a>
       <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -44,7 +49,7 @@
 <section class="page-hero">
   <p class="hero-kicker">Contact &amp; Access</p>
   <h1>Visit us in <em>Southport</em></h1>
-  <p class="page-hero-sub">A quiet suite in the heart of the Gold Coast — by appointment only.</p>
+  <p class="page-hero-sub">A quiet private space in the heart of the Gold Coast — by appointment only.</p>
 </section>
 
 <!-- ============ CONTACT DETAILS + MAP ============ -->
@@ -60,18 +65,22 @@
           <dt>Hours</dt>
           <dd>Tue–Sat 9:00am – 6:00pm<br><span class="muted">Closed Sun &amp; Mon · By appointment only</span></dd>
           <dt>Instagram</dt>
-          <dd><a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener">@dreamin_headspa_and_sculpture</a></dd>
-          <dt>Gift Cards</dt>
-          <dd><a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">Purchase online</a> — digital delivery, redeemable on any service</dd>
+          <dd><a href="https://www.instagram.com/dreamin_headspa_and_sculpture?igsh=MTk3MWZ1dmNlYXJmNA%3D%3D" target="_blank" rel="noopener">@dreamin_headspa_and_sculpture</a></dd>
+          <dt>Online Shop</dt>
+          <dd><a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">Gift cards, online</a> — digital delivery, redeemable on any service</dd>
           <dt>Parking</dt>
           <dd>Street and nearby centre parking available.<br><span class="muted">Placeholder — confirm parking details.</span></dd>
         </dl>
         <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
       </div>
 
-      <!-- Google Maps embed placeholder: replace with <iframe> from Google Maps "Share > Embed a map" -->
-      <div class="contact-map img-placeholder fade-in" role="img" aria-label="Placeholder: Google Map showing Suite 16, 115-157 Queen Street, Southport">
-        <span class="img-label">MAP</span>
+      <div class="map-embed fade-in">
+        <iframe
+          src="https://www.google.com/maps?q=Suite%2016%2C%20115-157%20Queen%20Street%2C%20Southport%20QLD%204215&z=16&output=embed"
+          title="Map — Dreamin' Head Spa &amp; Sculpture, Suite 16, 115–157 Queen Street, Southport QLD 4215"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -83,7 +92,7 @@
     <div class="prose fade-in">
       <p class="section-kicker">Before You Arrive</p>
       <h2>Your first visit</h2>
-      <p>Please arrive five minutes before your appointment — your suite will be ready for you. There is nothing to bring and nothing to prepare; treatments are performed as you are, and every service ends with a full blow-dry.</p>
+      <p>Please arrive five minutes before your appointment — your space will be ready for you. There is nothing to bring and nothing to prepare; treatments are performed as you are, and every service ends with a full blow-dry.</p>
       <p>If you have any scalp concerns you would like addressed, mention them when booking and we will allow time in your consultation.</p>
     </div>
   </div>
@@ -91,7 +100,7 @@
 
 <!-- ============ CTA BAND ============ -->
 <section class="cta-band">
-  <p class="hero-kicker">Reserve Your Suite</p>
+  <p class="hero-kicker">Reserve Your Time</p>
   <h2>Book <em>your</em> appointment</h2>
   <p>Reserve online in under a minute, or call us on <a href="tel:+61452345060" style="color:var(--gold-soft);">0452 345 060</a>.</p>
   <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
@@ -103,12 +112,21 @@
     <a href="index.html" class="logo logo-footer">
       <img src="assets/logo-light.png" alt="Dreamin' Head Spa &amp; Sculpture" class="logo-img">
     </a>
+    <!-- Mirrors the header CTA pair -->
+    <div class="footer-actions">
+      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener" class="btn btn-shop">Online Shop</a>
+      <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
+    </div>
+
     <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="menu.html">Service Menu</a>
+      <a href="blog.html">Journal</a>
       <a href="contact.html">Contact</a>
-      <a href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">Gift Cards</a>
-      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/dreamin_headspa_and_sculpture?igsh=MTk3MWZ1dmNlYXJmNA%3D%3D" target="_blank" rel="noopener" class="nav-insta">Instagram
+        <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle class="ig-dot" cx="17.4" cy="6.7" r="1.15"/></svg>
+      </a>
       <a href="privacy.html">Privacy Policy</a>
     </nav>
     <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>

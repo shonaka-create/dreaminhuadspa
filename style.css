@@ -18,6 +18,7 @@
   --serif: "Cormorant Garamond", "Noto Serif JP", Georgia, serif;
   --script: "Great Vibes", cursive;
   --sans: "Jost", "Noto Sans JP", -apple-system, sans-serif;
+  --price: "Quicksand", "Jost", -apple-system, sans-serif;   /* prices only — legible, even-height figures */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -105,6 +106,16 @@ h1 em, h2 em, h3 em {
 }
 .btn-gold:hover { background: #a3823f; color: var(--white); box-shadow: 0 10px 24px rgba(179, 146, 79, 0.35); }
 
+/* Online Shop — the secondary half of the header CTA pair.
+   Same pill silhouette as Book Now so the two read as a set,
+   outlined so Book Now stays the primary action. */
+.btn-shop {
+  background: transparent;
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+}
+.btn-shop:hover { background: var(--gold-soft); color: var(--ink); border-color: var(--gold-soft); }
+
 .btn-ghost { border-color: rgba(255, 253, 249, 0.6); color: var(--white); }
 .btn-ghost:hover { background: rgba(255, 253, 249, 0.12); color: var(--white); }
 
@@ -155,9 +166,25 @@ h1 em, h2 em, h3 em {
   border-bottom: 1px solid transparent;
 }
 .main-nav a:hover, .main-nav a.is-current { color: var(--gold-soft); border-bottom-color: var(--gold-soft); }
-.main-nav .nav-gift { color: var(--gold-soft); }
 
-.header-actions { display: flex; align-items: center; gap: 12px; }
+/* Instagram: label + glyph, sitting on the same baseline */
+.nav-insta { display: inline-flex; align-items: center; gap: 7px; }
+.icon-ig {
+  width: 17px; height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  vertical-align: middle;
+}
+.icon-ig .ig-dot { fill: currentColor; stroke: none; }
+
+/* Online Shop lives in the header bar on desktop; inside the drawer on mobile. */
+.nav-shop-mobile { display: none; }
+.main-nav.is-open .nav-shop-mobile { display: block; color: var(--gold-soft); }
+
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.header-actions .btn-shop { display: none; }   /* desktop only — see 960px breakpoint */
 
 .lang-toggle {
   background: none;
@@ -247,22 +274,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   background: linear-gradient(180deg, rgba(43,38,34,0.72) 0%, rgba(43,38,34,0.55) 45%, rgba(43,38,34,0.78) 100%);
 }
 .hero-content { position: relative; z-index: 2; padding: 120px 24px 90px; max-width: 860px; }
-.hero-content::before {
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(620px, 88vw);
-  height: min(620px, 88vw);
-  border: 1px solid rgba(205, 181, 135, 0.28);
-  border-radius: 50%;
-  z-index: -1;
-  animation: ringBreathe 9s var(--ease) infinite;
-}
-@keyframes ringBreathe {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.65; }
-  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-}
 .hero-kicker {
   font-size: 12px;
   font-weight: 500;
@@ -399,60 +410,59 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .muted { opacity: 0.6; font-size: 0.92em; }
 
 /* ---------- Why grid ----------
-   Near-rectangular cards; the big serif number deliberately
-   overflows the top edge of each card. */
+   Near-rectangular cards; the big number sits at the top-left corner
+   and deliberately breaks out of the card frame. */
 .why-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 72px 32px;
-  margin-top: 80px;
+  gap: 84px 32px;
+  margin-top: 96px;
 }
 .why-card {
   position: relative;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 60px 30px 38px;
+  padding: 52px 30px 38px;
   text-align: left;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 .why-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(43, 38, 34, 0.08); }
-.why-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 30px;
-  width: 44px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0;             /* the number itself carries the accent */
-}
 .why-num {
   position: absolute;
-  top: -34px;
-  left: 26px;
+  top: -52px;
+  left: 20px;
   font-family: var(--serif);
-  font-size: 84px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 500;
+  /* Lining + tabular figures: without these, Cormorant falls back to
+     old-style numerals, where 0 and 1 sit at different heights. */
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  line-height: 0.85;
   color: var(--gold);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   pointer-events: none;
-  text-shadow: 0 2px 0 var(--cream);   /* lifts the digits off the card edge */
 }
-.why-card h3 { font-size: 25px; margin-bottom: 12px; }
+.why-card h3 { font-size: 25px; margin-bottom: 12px; min-height: 63px; }   /* 2 lines — keeps body copy on one baseline */
 .why-card p { font-size: 16px; color: var(--ink-soft); }
 
-/* ---------- Menu ---------- */
+/* ---------- Menu ----------
+   Every card shares one vertical rhythm: the tag is absolutely placed so
+   tagged and untagged cards start their title at the same height, and the
+   duration/price slots reserve their tallest case. Result: titles, prices,
+   lists and buttons line up across every card in a row. */
 .menu-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
 }
 .menu-card {
+  position: relative;
   border: 1px solid var(--line-light);
   border-radius: 14px;
-  padding: 42px 34px;
+  padding: 62px 34px 42px;   /* top padding reserves the tag row on every card */
   display: flex;
   flex-direction: column;
   transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
@@ -467,33 +477,63 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: var(--gold-soft);
   margin-bottom: 14px;
 }
-.menu-card h3 { font-size: 26px; color: var(--white); margin-bottom: 6px; }
+.menu-card .menu-tag { position: absolute; top: 36px; left: 34px; margin: 0; }
+.menu-card h3 { font-size: 26px; color: var(--white); margin-bottom: 6px; min-height: 33px; }
 .menu-duration {
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(244, 240, 233, 0.55);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  min-height: 44px;          /* 2 lines — the "(depending on hair length)" case */
 }
 .menu-price {
-  font-family: var(--serif);
-  font-size: 46px;
-  line-height: 1;
+  font-family: var(--price);
+  font-size: 42px;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
   color: var(--gold-soft);
   margin-bottom: 24px;
+  min-height: 97px;          /* reserves the 2-line "Men / Ladies" case */
 }
-.menu-price sup { font-size: 0.45em; vertical-align: 0.7em; margin-right: 2px; }
+
+/* Subgrid does the same alignment exactly, and without reserving dead space:
+   each card's 5 in-flow rows (title / duration / price / list / button) become
+   rows of .menu-grid, so every row is as tall as its tallest card and no taller.
+   The min-heights above remain the fallback for browsers without subgrid. */
+@supports (grid-template-rows: subgrid) {
+  .menu-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    row-gap: 0;
+  }
+  .menu-card h3,
+  .menu-duration,
+  .menu-price { min-height: 0; }
+}
+.menu-price sup { font-size: 0.5em; font-weight: 600; vertical-align: 0.62em; margin-right: 1px; }
 .gst {
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(244, 240, 233, 0.5);
+  white-space: nowrap;
+  color: rgba(244, 240, 233, 0.55);
   margin-left: 10px;
 }
+/* Cards that carry words instead of a figure (e.g. gift cards) keep the serif. */
+.menu-price-text {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.3;
+}
 .duration-note { text-transform: none; letter-spacing: 0.04em; opacity: 0.75; }
-.price-split { font-size: 26px; display: inline-block; margin-right: 22px; }
+.price-split { font-size: 25px; display: inline-block; margin-right: 18px; }
 .menu-includes {
   list-style: none;
   margin-bottom: 32px;
@@ -512,20 +552,31 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: var(--gold);
 }
 
-/* ---------- What is a Head Spa? ---------- */
+/* ---------- What is a Head Spa? ----------
+   Dry vs wet, stacked one above the other so the comparison reads
+   top-to-bottom, each with its own image. */
 .spa-types {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 28px;
   margin-bottom: 72px;
 }
 .spa-type {
+  display: grid;
+  grid-template-columns: 1fr;
   border: 1px solid var(--line);
   border-radius: 26px;
-  padding: 44px 38px;
   background: var(--white);
+  overflow: hidden;          /* lets the image sit flush inside the rounded frame */
 }
-.spa-type .menu-tag { color: var(--gold); }
+.spa-type-media {
+  min-height: 240px;
+  aspect-ratio: 4 / 3;
+  border: none;
+  border-bottom: 1px solid var(--line);
+}
+.spa-type-body { padding: 40px 34px 44px; }
+.spa-type .menu-tag { color: var(--gold); position: static; margin-bottom: 14px; }
 .spa-type h3 { font-size: 29px; margin-bottom: 12px; }
 .spa-type p { font-size: 16.5px; color: var(--ink-soft); }
 .spa-type.is-dreamin {
@@ -536,6 +587,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .spa-type.is-dreamin h3 { color: var(--white); }
 .spa-type.is-dreamin p { color: rgba(244, 240, 233, 0.8); }
 .spa-type.is-dreamin .menu-tag { color: var(--gold-soft); }
+.spa-type.is-dreamin .spa-type-media { border-bottom-color: rgba(205, 181, 135, 0.3); }
 .spa-type-note {
   margin-top: 18px;
   font-family: var(--serif);
@@ -547,42 +599,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .technique-title { font-size: clamp(26px, 3vw, 36px); margin-bottom: 18px; }
 .technique-text { font-size: 16.5px; color: var(--ink-soft); margin-bottom: 16px; max-width: 540px; }
 .technique-text em { font-family: var(--serif); font-size: 1.08em; color: var(--ink); }
-
-/* ---------- Experience steps ----------
-   The step chevron is a bold arrow ribbon that overlaps the
-   top-left corner of the image — echoing the overflowing
-   numbers of the Why cards. */
-.steps {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 56px 28px;
-  counter-reset: step;
-  margin-top: 26px;
-}
-.step { position: relative; }
-.step-media { aspect-ratio: 4 / 3; border-radius: 12px; margin-bottom: 22px; }
-.step-chevron {
-  position: absolute;
-  top: -18px;
-  left: -14px;
-  z-index: 2;
-  display: inline-block;
-  background: linear-gradient(90deg, var(--gold) 0 5px, var(--ink) 5px);   /* gold spine on the left edge */
-  color: var(--gold-soft);
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 15px 52px 15px 28px;
-  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%);
-  filter: drop-shadow(0 10px 18px rgba(43, 38, 34, 0.28));
-}
-.step { text-align: left; }
-.step h3 { font-size: 24px; margin-bottom: 10px; }
-.step p { font-size: 16px; color: var(--ink-soft); }
 
 /* ---------- Instagram grid ---------- */
 .ig-count {
@@ -598,9 +614,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .ig-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   /* top 3 posts, one row */
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 16px;
   margin: 48px 0 40px;
+  align-items: start;
 }
 .ig-tile {
   aspect-ratio: 1;
@@ -608,6 +625,22 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .ig-tile:hover { opacity: 0.85; transform: scale(0.985); }
+
+/* Instagram's embed.js rewrites each blockquote into an iframe carrying its
+   own inline width/margin — these overrides force it to fill the grid cell. */
+.ig-grid .instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.ig-embed-fallback {           /* shown only until embed.js swaps the blockquote out */
+  display: block;
+  padding: 22px;
+  font-size: 14px;
+}
 
 /* ---------- Voice / testimonials (horizontal scroll) ---------- */
 .voice-grid {
@@ -678,6 +711,23 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .contact-info dd a:hover { color: var(--gold); }
 .contact-map { min-height: 340px; border-radius: 26px; }
 
+/* Google Maps embed */
+.map-embed {
+  min-height: 400px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream-deep);
+}
+.map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: 0;
+  filter: saturate(0.85);   /* keeps Google's palette from fighting the brand */
+}
+
 /* ---------- Generic content page (privacy etc.) ---------- */
 .prose { max-width: 720px; }
 .prose h2 { font-size: 26px; margin: 48px 0 14px; }
@@ -727,8 +777,15 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 44px;
   text-align: center;
+}
+/* Mirrors the header pair: Online Shop beside Book Now. */
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 .footer-nav {
   display: flex;
@@ -743,6 +800,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   text-transform: uppercase;
 }
 .footer-nav a:hover { color: var(--gold-soft); }
+.footer-nav .nav-insta { color: var(--gold-soft); }
 .copyright {
   font-size: 12.5px;
   color: rgba(244, 240, 233, 0.4);
@@ -828,6 +886,306 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .fade-in { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+/* Sibling .fade-in elements get an incremental transition-delay from
+   script.js, so grids and header groups reveal in sequence rather than
+   as one block. Cards with their own hover transitions have .fade-in
+   removed once the entrance finishes (also script.js), handing the
+   transition property back to the hover styles. */
+
+/* ---------- Entrance choreography (above the fold) ----------
+   The scroll observer can't stagger content that is already in view on
+   load, so the hero and sub-page heroes run a one-shot rise instead. */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-content > * { animation: riseIn 0.9s var(--ease) both; }
+.hero-content > *:nth-child(1) { animation-delay: 0.15s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.45s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.6s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.75s; }
+.hero-scroll { animation: riseIn 0.9s var(--ease) 1.15s both; }
+
+.page-hero > * { animation: riseIn 0.8s var(--ease) both; }
+.page-hero > *:nth-child(1) { animation-delay: 0.1s; }
+.page-hero > *:nth-child(2) { animation-delay: 0.22s; }
+.page-hero > *:nth-child(3) { animation-delay: 0.34s; }
+
+/* The gold rule beside each kicker draws itself in once the kicker
+   becomes visible — a quiet cue that a new chapter is starting. */
+.section-kicker.fade-in::before,
+.section-kicker.fade-in.centered::after {
+  width: 0;
+  transition: width 0.7s var(--ease) 0.35s;
+}
+.section-kicker.fade-in.is-visible::before,
+.section-kicker.fade-in.is-visible.centered::after { width: 44px; }
+
+/* Decorative circles on dark heroes/bands breathe very slowly. */
+@keyframes circleDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-16px, 12px); }
+}
+.page-hero::before, .cta-band::before { animation: circleDrift 16s ease-in-out infinite; }
+.cta-band::after { animation: circleDrift 22s ease-in-out infinite reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > *, .hero-scroll, .page-hero > *,
+  .page-hero::before, .cta-band::before, .cta-band::after { animation: none; }
+  .section-kicker.fade-in::before,
+  .section-kicker.fade-in.centered::after { width: 44px; transition: none; }
+  .btn-gold::before { display: none; }
+  .sticky-cta { transition: opacity 0.2s linear; }
+  .logo-img { transition: none; }
+}
+
+/* ---------- FAQ accordion ----------
+   Built on <details>/<summary> so it still opens with JS disabled and
+   maps cleanly onto a WordPress accordion block later. */
+.faq-list {
+  max-width: 860px;
+  border-top: 1px solid var(--line);
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+  transition: color 0.3s var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--gold); }
+
+/* Gold plus that rotates into a minus when open */
+.faq-icon {
+  flex: none;
+  position: relative;
+  width: 34px; height: 34px;
+  margin-top: 2px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transition: background 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.faq-icon::before, .faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 13px; height: 1px;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease);
+}
+.faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item[open] .faq-icon { background: var(--gold); }
+.faq-item[open] .faq-icon::before,
+.faq-item[open] .faq-icon::after { background: var(--white); }
+.faq-item[open] .faq-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+
+.faq-answer {
+  padding: 0 60px 30px 0;
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  animation: faqReveal 0.45s var(--ease);
+}
+.faq-answer p + p { margin-top: 12px; }
+.faq-answer em { font-family: var(--serif); font-size: 1.06em; color: var(--ink); }
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer { animation: none; }
+}
+
+/* Dark-section variant (Service Menu page) */
+.section-dark .faq-list { border-top-color: var(--line-light); }
+.section-dark .faq-item { border-bottom-color: var(--line-light); }
+.section-dark .faq-item summary { color: var(--cream); }
+.section-dark .faq-item summary:hover { color: var(--gold-soft); }
+.section-dark .faq-icon { border-color: var(--gold-soft); }
+.section-dark .faq-icon::before,
+.section-dark .faq-icon::after { background: var(--gold-soft); }
+.section-dark .faq-item[open] .faq-icon { background: var(--gold-soft); }
+.section-dark .faq-item[open] .faq-icon::before,
+.section-dark .faq-item[open] .faq-icon::after { background: var(--ink); }
+.section-dark .faq-answer { color: rgba(244, 240, 233, 0.75); }
+.section-dark .faq-answer em { color: var(--cream); }
+
+/* Line under the accordion pointing at the remaining question: "still unsure? call us" */
+.faq-foot {
+  max-width: 860px;
+  margin-top: 40px;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.section-dark .faq-foot { color: rgba(244, 240, 233, 0.7); }
+.faq-foot a { border-bottom: 1px solid var(--gold-soft); }
+
+/* ---------- Blog / Journal ----------
+   Category filter + card grid. Filtering is class-based on the cards, so
+   swapping in WordPress term slugs later needs no CSS change. */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 52px;
+}
+.filter-btn {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.filter-btn[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--gold-soft);
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px 30px;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.post-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(43, 38, 34, 0.09); }
+.post-card.is-hidden { display: none; }
+.post-media {
+  aspect-ratio: 3 / 2;
+  border: none;
+  border-bottom: 1px solid var(--line);
+}
+.post-body { padding: 30px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+.post-cat {
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.post-card h3 {
+  font-size: 25px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.post-card h3 a { color: var(--ink); }
+.post-card h3 a:hover { color: var(--gold); }
+.post-excerpt { font-size: 16px; color: var(--ink-soft); flex: 1; }
+.post-meta {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(43, 38, 34, 0.5);
+}
+.post-more { color: var(--gold); font-weight: 600; white-space: nowrap; }
+.post-card:hover .post-more { color: var(--ink); }
+
+/* Empty state when a filter matches nothing (relevant once posts are real) */
+.post-empty {
+  display: none;
+  padding: 60px 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  color: var(--ink-soft);
+}
+.post-empty.is-shown { display: block; }
+
+/* ---------- Single article ---------- */
+.article { max-width: 760px; margin: 0 auto; }
+.article .post-cat { display: block; margin-bottom: 18px; }
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 42px;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(43, 38, 34, 0.5);
+}
+.article-lead {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 36px;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+.article-media { aspect-ratio: 16 / 9; border-radius: 14px; margin: 40px 0; }
+.article h2 { font-size: 30px; margin: 48px 0 16px; }
+.article p { font-size: 17px; color: var(--ink-soft); margin-bottom: 18px; }
+.article ul { padding-left: 22px; margin-bottom: 18px; }
+.article li { font-size: 17px; color: var(--ink-soft); margin-bottom: 8px; }
+.article blockquote {
+  margin: 36px 0;
+  padding: 28px 30px;
+  background: var(--white);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.article blockquote cite {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(43, 38, 34, 0.5);
+}
+.article-back {
+  display: inline-block;
+  margin-top: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 
 /* ---------- Language scaffold: hide JA-only lines in EN mode etc. ---------- */
 /* Elements marked lang="ja" that are supplementary stay visible in both modes.
@@ -840,17 +1198,35 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .hide-sm { display: inline; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
-  .steps { grid-template-columns: repeat(2, 1fr); }
-  .spa-types { grid-template-columns: 1fr 1fr; }
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Image beside copy; the two blocks mirror each other. */
+  .spa-type { grid-template-columns: 5fr 6fr; align-items: center; }
+  .spa-type-media { height: 100%; aspect-ratio: auto; min-height: 300px; border-bottom: none; border-right: 1px solid var(--line); }
+  .spa-type.is-dreamin .spa-type-media { order: 2; border-right: none; border-left: 1px solid rgba(205, 181, 135, 0.3); }
+  .spa-type-body { padding: 48px 40px; }
+
+  .footer-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px 30px; }
+
+  .post-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 960px) {
   .main-nav { display: flex; }
   .nav-burger { display: none; }
+  .header-actions .btn-shop { display: inline-block; }
   .section { padding: 150px 0; }
   .section-tight { padding-top: 0; }
   .why-grid { grid-template-columns: repeat(4, 1fr); }
   .menu-grid { grid-template-columns: repeat(3, 1fr); }
-  .steps { grid-template-columns: repeat(4, 1fr); }
+  .ig-grid { grid-template-columns: repeat(4, 1fr); }   /* four reels, one row */
   .contact-grid { grid-template-columns: 5fr 7fr; align-items: start; }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+  .faq-item summary { font-size: 23px; }
+}
+
+/* Narrow phones: the accordion answer needs its full width back */
+@media (max-width: 480px) {
+  .faq-answer { padding-right: 0; }
+  .faq-item summary { font-size: 19px; gap: 16px; }
 }
