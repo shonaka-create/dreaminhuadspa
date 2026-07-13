@@ -156,4 +156,90 @@
       });
     });
   }
+
+  /* ---------- 7. Enquiry form ----------
+     Validates, then POSTs to whatever endpoint is on the form's data-endpoint
+     (Formspree, a Vercel function, a WP REST route — all take multipart POST and
+     answer 2xx). No endpoint set yet, so rather than fake a "sent" message and
+     drop the enquiry, we say so and hand the guest a channel that works. */
+  var form = document.getElementById("enquiryForm");
+  var note = document.getElementById("formNote");
+
+  if (form && note) {
+    var email = document.getElementById("your-email");
+    var confirm = document.getElementById("confirm-email");
+
+    function setNote(msg, kind) {
+      note.textContent = msg;
+      note.className = "form-note" + (kind ? " is-" + kind : "");
+    }
+
+    /* The two email fields must agree — wired through the Constraint Validation
+       API so it fails on submit like any other required field. */
+    function checkEmailMatch() {
+      confirm.setCustomValidity(
+        confirm.value && confirm.value !== email.value
+          ? "The two email addresses don't match."
+          : ""
+      );
+    }
+    email.addEventListener("input", checkEmailMatch);
+    confirm.addEventListener("input", checkEmailMatch);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      checkEmailMatch();
+      form.classList.add("is-validated");
+
+      if (!form.checkValidity()) {
+        /* Report the field the guest will actually be taken to, not whichever
+           one happens to be checked last. */
+        var firstBad = form.querySelector(":invalid");
+        if (firstBad) firstBad.focus();
+        setNote(
+          (firstBad && firstBad.validationMessage) ||
+            "Please complete the required fields above.",
+          "error"
+        );
+        return;
+      }
+
+      var endpoint = form.getAttribute("data-endpoint");
+      if (!endpoint) {
+        setNote(
+          "Online enquiries aren't switched on yet. Please call 0452 345 060 or message us on Instagram — we'll get straight back to you.",
+          "error"
+        );
+        return;
+      }
+
+      var btn = form.querySelector("button[type=submit]");
+      btn.disabled = true;
+      setNote("Sending…");
+
+      fetch(endpoint, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.status);
+          form.reset();
+          form.classList.remove("is-validated");
+          setNote(
+            "Thank you — your message is on its way. We reply between appointments, usually within one business day.",
+            "success"
+          );
+        })
+        .catch(function () {
+          setNote(
+            "Something went wrong sending that. Please try again, or call 0452 345 060.",
+            "error"
+          );
+        })
+        .then(function () {
+          btn.disabled = false;
+        });
+    });
+  }
 })();

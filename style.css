@@ -185,7 +185,8 @@ h1 em, h2 em, h3 em {
 }
 .main-nav a:hover, .main-nav a.is-current { color: var(--gold-soft); border-bottom-color: var(--gold-soft); }
 
-/* Instagram: label + glyph, sitting on the same baseline */
+/* Instagram: label + glyph, sitting on the same baseline (footer nav only —
+   in the header the label is dropped and the glyph stands alone, see .header-ig) */
 .nav-insta { display: inline-flex; align-items: center; gap: 7px; }
 .icon-ig {
   width: 17px; height: 17px;
@@ -196,6 +197,24 @@ h1 em, h2 em, h3 em {
   vertical-align: middle;
 }
 .icon-ig .ig-dot { fill: currentColor; stroke: none; }
+
+/* Instagram in the header: glyph only, hard right of the bar. No label, so it
+   needs a real tap target of its own — hence the padding rather than bare svg. */
+.header-ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--cream);
+  transition: color 0.3s var(--ease);
+}
+.header-ig:hover { color: var(--gold-soft); }
+.header-ig .icon-ig { width: 21px; height: 21px; }
+
+/* e-Gift Voucher sits where Instagram used to, at the end of the nav. Reads as a
+   button on desktop; inside the mobile drawer it falls back to a plain nav row,
+   because a lone pill in a stack of text links looks like a mistake. */
+.nav-gift { white-space: nowrap; }
 
 /* Online Shop lives in the header bar on desktop; inside the drawer on mobile. */
 .nav-shop-mobile { display: none; }
@@ -338,6 +357,9 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: rgba(255, 253, 249, 0.65);
 }
 .hero-scroll:hover { color: var(--gold-soft); }
+/* letter-spacing adds a trailing gap after the final S, which pushes the
+   glyphs left of the line when the flex box centres them. Reclaim it. */
+.scroll-label { margin-right: -0.35em; }
 .scroll-line { width: 1px; height: 42px; background: currentColor; animation: scrollPulse 2.4s var(--ease) infinite; }
 @keyframes scrollPulse {
   0%, 100% { transform: scaleY(1); opacity: 0.5; }
@@ -643,26 +665,15 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   background-size: cover;
   background-position: center;
 }
-/* Stand-in until the real photograph is dropped in. Deliberately mid-tone,
-   not near-black: it has to survive the scrim so the band already reads the
-   way it will once a real photo is behind it. */
-.method-bg.is-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 9%;
-  background:
-    repeating-linear-gradient(45deg, transparent 0 30px, rgba(244, 240, 233, 0.05) 30px 31px),
-    radial-gradient(130% 100% at 26% 28%, #8d7f6e 0%, #5c5248 46%, #38312b 100%);
-}
-.method-bg.is-placeholder .img-label { color: rgba(244, 240, 233, 0.6); }
+/* Lighter on the left so the salon itself stays visible, heavy on the right
+   so the panel's copy always has contrast behind it. */
 .method-scrim {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(43, 38, 34, 0.15) 0%, rgba(43, 38, 34, 0.55) 48%, rgba(43, 38, 34, 0.86) 100%),
-    linear-gradient(180deg, rgba(43, 38, 34, 0.5) 0%, rgba(43, 38, 34, 0.2) 42%, rgba(43, 38, 34, 0.62) 100%);
+    linear-gradient(90deg, rgba(43, 38, 34, 0.10) 0%, rgba(43, 38, 34, 0.48) 48%, rgba(43, 38, 34, 0.84) 100%),
+    linear-gradient(180deg, rgba(43, 38, 34, 0.34) 0%, rgba(43, 38, 34, 0.12) 42%, rgba(43, 38, 34, 0.5) 100%);
 }
 .method-panel {
   background: rgba(33, 29, 26, 0.72);
@@ -711,12 +722,26 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   margin-left: 14px;
   vertical-align: middle;
 }
+/* Reels are tall; stacked vertically on a phone the section ran forever.
+   So they swipe sideways instead — same scroll-snap rail as the reviews.
+   overflow-y is pinned to hidden: setting only overflow-x makes overflow-y
+   compute to auto, and the horizontal scrollbar then steals enough height
+   from the content box to raise a spurious vertical scrollbar. */
 .ig-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 16px;
   margin: 48px 0 40px;
-  align-items: start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 18px;          /* room for the scrollbar to sit in */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: var(--gold) rgba(43, 38, 34, 0.12);
+  scrollbar-width: thin;
+}
+.ig-grid > * {
+  flex: 0 0 min(78vw, 320px);
+  scroll-snap-align: start;
 }
 .ig-tile {
   aspect-ratio: 1;
@@ -726,7 +751,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .ig-tile:hover { opacity: 0.85; transform: scale(0.985); }
 
 /* Instagram's embed.js rewrites each blockquote into an iframe carrying its
-   own inline width/margin — these overrides force it to fill the grid cell. */
+   own inline width/margin — these overrides force it to fill its rail slot. */
 .ig-grid .instagram-media {
   width: 100% !important;
   min-width: 0 !important;
@@ -745,6 +770,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .voice-grid {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;          /* stops the sideways rail raising a vertical scrollbar */
   scroll-snap-type: x mandatory;
   gap: 22px;
   margin-top: 26px;
@@ -810,6 +836,61 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .contact-info dd a:hover { color: var(--gold); }
 .contact-map { min-height: 340px; border-radius: 26px; }
 
+/* ---------- Enquiry form ----------
+   Rounded, generously spaced fields: the same silhouette as the buttons, so the
+   form reads as part of the brand rather than a bolted-on WordPress widget. */
+/* The header is fixed, so an #enquiry jump from another page would otherwise
+   land with the heading tucked underneath it. */
+#enquiry { scroll-margin-top: 90px; }
+.enquiry-wrap { max-width: 760px; }
+.enquiry-title { font-size: clamp(30px, 4.4vw, 44px); color: var(--gold); margin-bottom: 14px; }
+.enquiry-lead { color: var(--ink-soft); margin-bottom: 38px; max-width: 62ch; }
+
+.enquiry-form { display: flex; flex-direction: column; gap: 24px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.field .req { color: var(--gold); }
+.field input,
+.field textarea {
+  font-family: var(--sans);
+  font-size: 16.5px;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 16px 22px;
+  width: 100%;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.field textarea { border-radius: 20px; resize: vertical; min-height: 180px; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(179, 146, 79, 0.14);
+}
+/* Only after a failed submit — never while the guest is still typing. */
+.enquiry-form.is-validated :invalid { border-color: #b4553f; }
+.field-error { font-size: 13.5px; color: #b4553f; letter-spacing: 0; text-transform: none; }
+.field-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.enquiry-form .btn { align-self: flex-start; border: none; cursor: pointer; }
+.form-note { font-size: 15px; color: var(--ink-soft); margin: 0; }
+.form-note:empty { display: none; }
+.form-note.is-error { color: #b4553f; }
+.form-note.is-success { color: var(--gold); }
+
+@media (min-width: 640px) {
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
 /* Google Maps embed */
 .map-embed {
   min-height: 400px;
@@ -825,6 +906,24 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   min-height: 400px;
   border: 0;
   filter: saturate(0.85);   /* keeps Google's palette from fighting the brand */
+}
+
+/* ---------- About page photography ----------
+   Arch-topped, echoing the round mirrors in the salon. The images are
+   portrait; the frame crops them rather than letterboxing. */
+.about-photo {
+  aspect-ratio: 3 / 4;              /* the photos' own shape — frames them without cropping */
+  overflow: hidden;
+  border-radius: 260px 260px 18px 18px;
+  border: 1px solid var(--line);
+  background: var(--cream-deep);
+}
+.section-dark .about-photo { border-color: rgba(205, 181, 135, 0.28); }
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ---------- Generic content page (privacy etc.) ---------- */
@@ -900,6 +999,36 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .footer-nav a:hover { color: var(--gold-soft); }
 .footer-nav .nav-insta { color: var(--gold-soft); }
+
+/* The gift certificate itself, as the link — the card is the affordance, so it
+   gets a light plate behind it to lift off the near-black footer. */
+.footer-gift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba(244, 240, 233, 0.7);
+}
+.footer-gift img {
+  width: 248px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: var(--white);
+  padding: 10px;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.footer-gift:hover img {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+.footer-gift span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+}
+.footer-gift:hover span { color: var(--gold-soft); }
+
 .copyright {
   font-size: 12.5px;
   color: rgba(244, 240, 233, 0.4);
@@ -1009,7 +1138,15 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .hero-content > *:nth-child(3) { animation-delay: 0.45s; }
 .hero-content > *:nth-child(4) { animation-delay: 0.6s; }
 .hero-content > *:nth-child(5) { animation-delay: 0.75s; }
-.hero-scroll { animation: riseIn 0.9s var(--ease) 1.15s both; }
+/* .hero-scroll is centred with translateX(-50%). riseIn ends on
+   `transform: none`, which (with fill-mode both) would wipe that out and
+   leave the indicator half its width right of centre — so it rises with a
+   variant that keeps the centring translate. */
+@keyframes riseInCentred {
+  from { opacity: 0; transform: translateX(-50%) translateY(26px); }
+  to { opacity: 1; transform: translateX(-50%); }
+}
+.hero-scroll { animation: riseInCentred 0.9s var(--ease) 1.15s both; }
 
 .page-hero > * { animation: riseIn 0.8s var(--ease) both; }
 .page-hero > *:nth-child(1) { animation-delay: 0.1s; }
@@ -1302,7 +1439,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .hide-sm { display: inline; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
-  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  .ig-grid > * { flex-basis: min(46%, 320px); }
 
   /* Image beside copy; the two blocks mirror each other. */
   .spa-type { grid-template-columns: 5fr 6fr; align-items: center; }
@@ -1323,12 +1460,28 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .main-nav { display: flex; }
   .nav-burger { display: none; }
   .header-actions .btn-shop { display: inline-block; }
+
+  /* Outlined pill, quieter than Book Now — a nav item that happens to be a button. */
+  .main-nav .nav-gift {
+    border: 1px solid var(--gold-soft);
+    border-radius: 999px;
+    padding: 7px 16px;
+    color: var(--gold-soft);
+    font-size: 11.5px;
+    line-height: 1;
+    transition: background 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .main-nav .nav-gift:hover { background: var(--gold-soft); color: var(--ink); }
   .section { padding: 150px 0; }
   .section-tight { padding-top: 0; }
   .why-grid { grid-template-columns: repeat(4, 1fr); }
   .menu-grid { grid-template-columns: repeat(3, 1fr); }
-  .ig-grid { grid-template-columns: repeat(4, 1fr); }   /* four reels, one row */
+  /* On desktop the four reels fill the rail exactly, so nothing scrolls. */
+  .ig-grid > * { flex-basis: calc((100% - 48px) / 4); }
   .contact-grid { grid-template-columns: 5fr 7fr; align-items: start; }
+  /* Copy first, photo second — mirrored so the photo still lands in the
+     narrow column and both About arches come out the same size. */
+  .contact-grid.is-mirrored { grid-template-columns: 7fr 5fr; }
   .post-grid { grid-template-columns: repeat(3, 1fr); }
   .faq-item summary { font-size: 23px; }
 
