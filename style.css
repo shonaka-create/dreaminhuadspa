@@ -100,11 +100,27 @@ h1 em, h2 em, h3 em {
 .btn:hover { transform: translateY(-2px); }
 
 .btn-gold {
+  position: relative;
+  overflow: hidden;
   background: var(--gold);
   color: var(--white);
   box-shadow: 0 6px 18px rgba(179, 146, 79, 0.25);
 }
 .btn-gold:hover { background: #a3823f; color: var(--white); box-shadow: 0 10px 24px rgba(179, 146, 79, 0.35); }
+/* A soft light sweep across the primary CTA on hover — one pass, then rests. */
+.btn-gold::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: -60%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 253, 249, 0.35), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+.btn-gold:hover::before { animation: btnSheen 0.9s var(--ease); }
+@keyframes btnSheen {
+  to { transform: translateX(420%) skewX(-18deg); }
+}
 
 /* Online Shop — the secondary half of the header CTA pair.
    Same pill silhouette as Book Now so the two read as a set,
@@ -152,7 +168,9 @@ h1 em, h2 em, h3 em {
 }
 
 .logo { display: flex; align-items: center; }
-.logo-img { height: 44px; width: auto; display: block; }
+.logo-img { height: 44px; width: auto; display: block; transition: height 0.35s var(--ease); }
+/* The mark condenses slightly once the bar turns solid — quieter over content. */
+.site-header.is-solid .logo-img { height: 38px; }
 .logo-footer .logo-img { height: 60px; }
 
 .main-nav { display: none; gap: 30px; }

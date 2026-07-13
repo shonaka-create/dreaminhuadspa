@@ -3,9 +3,10 @@
    Vanilla JS only. Handles:
    1. Header solid-on-scroll
    2. Mobile nav drawer
-   3. Scroll-triggered fade-in animations (IntersectionObserver)
-   4. Hero background slideshow (cross-fade rotation)
-   Note: the bottom booking banner is always visible (pure CSS).
+   3. Scroll-triggered fade-in animations, staggered per sibling group
+   4. Sticky booking banner: appears after the hero, hides over the footer
+   5. Hero background slideshow (cross-fade rotation)
+   6. Journal category filter
    ========================================================================== */
 
 (function () {
@@ -34,8 +35,34 @@
     }
   });
 
-  /* ---------- 3. Fade-in on scroll (restrained, one-shot) ---------- */
+  /* ---------- 3. Fade-in on scroll (restrained, one-shot) ----------
+     Siblings sharing a parent (cards in a grid, a section's kicker/title/
+     lead) get an incremental delay, so each group reveals in sequence.
+     Once an element has finished entering, the inline delay is cleared
+     and hover-transition cards drop .fade-in, handing the transition
+     property back to their own hover styles. */
   var faders = document.querySelectorAll(".fade-in");
+  var lastParent = null;
+  var groupIndex = 0;
+  faders.forEach(function (el) {
+    if (el.parentElement !== lastParent) {
+      lastParent = el.parentElement;
+      groupIndex = 0;
+    }
+    el.style.transitionDelay = Math.min(groupIndex * 80, 560) + "ms";
+    groupIndex++;
+  });
+
+  function settleFader(el) {
+    var wait = 1000 + (parseFloat(el.style.transitionDelay) || 0);
+    setTimeout(function () {
+      el.style.transitionDelay = "";
+      if (el.matches(".why-card, .menu-card, .post-card")) {
+        el.classList.remove("fade-in");
+      }
+    }, wait);
+  }
+
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -43,6 +70,7 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
             io.unobserve(entry.target);
+            settleFader(entry.target);
           }
         });
       },
@@ -50,21 +78,42 @@
     );
     faders.forEach(function (el) { io.observe(el); });
   } else {
-    faders.forEach(function (el) { el.classList.add("is-visible"); });
+    faders.forEach(function (el) {
+      el.style.transitionDelay = "";
+      el.classList.add("is-visible");
+    });
   }
 
-  /* ---------- 4. Sticky CTA: hide once the footer is in view ---------- */
+  /* ---------- 4. Sticky CTA ----------
+     Stays out of the way until the reader has scrolled past the hero
+     (or a screen's worth on pages without one), then slides up; slides
+     away again while the footer is in view, which repeats the same CTAs.
+     With JS disabled the banner is simply always visible. */
   var sticky = document.getElementById("stickyCta");
   var footer = document.querySelector(".site-footer");
-  if (sticky && footer && "IntersectionObserver" in window) {
-    new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          sticky.classList.toggle("is-hidden", entry.isIntersecting);
-        });
-      },
-      { threshold: 0 }
-    ).observe(footer);
+  if (sticky) {
+    var overFooter = false;
+    var pageTop = document.querySelector(".hero, .page-hero");
+    function stickyRevealPoint() {
+      return pageTop ? pageTop.offsetHeight * 0.6 : 320;
+    }
+    function updateSticky() {
+      sticky.classList.toggle(
+        "is-hidden",
+        overFooter || window.scrollY < stickyRevealPoint()
+      );
+    }
+    if (footer && "IntersectionObserver" in window) {
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) { overFooter = entry.isIntersecting; });
+          updateSticky();
+        },
+        { threshold: 0 }
+      ).observe(footer);
+    }
+    window.addEventListener("scroll", updateSticky, { passive: true });
+    updateSticky();
   }
 
   /* ---------- 5. Hero slideshow: cross-fade every 6 seconds ---------- */
