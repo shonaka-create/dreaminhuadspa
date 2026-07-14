@@ -1079,7 +1079,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .footer-privacy:hover { color: var(--gold-soft); }
 
-/* The gift certificate itself, as the link — the card is the affordance, so it
+/* The gift voucher itself, as the link — the card is the affordance, so it
    gets a light plate behind it to lift off the near-black footer. */
 .footer-gift {
   display: flex;
