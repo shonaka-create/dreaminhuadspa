@@ -1,0 +1,21 @@
+# Dreamin' Head Spa & Sculpture — Southport, Gold Coast
+# Everything is public. Nothing here is worth hiding from a crawler.
+
+User-agent: *
+Allow: /
+
+# AI crawlers are deliberately allowed: AI Mode is now the default search
+# experience, and being quotable there is the whole point of the Journal.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://dreaminheadspa.com.au/sitemap.xml

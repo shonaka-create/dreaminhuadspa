@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html lang="en-AU" id="top">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,17 +18,30 @@
   <meta property="og:locale" content="en_AU">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- ============ Structured data: LocalBusiness / HairSalon ============ -->
+  <!-- ============ Structured data: LocalBusiness / HairSalon ============
+
+       NOTE ON THE 5.0 / 140+ RATING — deliberately NOT marked up as
+       "aggregateRating". That rating lives on the Google Business Profile,
+       i.e. it is a third-party aggregate we did not collect ourselves, and
+       Google's review-snippet policy explicitly forbids marking up ratings
+       aggregated from other sites. Doing it invites a manual action, which is
+       the last thing a site recovering from a traffic drop can afford.
+       The legitimate route is what we do below: "sameAs" the Business Profile
+       so Google ties this site to that entity (and therefore that rating), and
+       state the rating in visible copy. If first-party reviews are ever
+       collected on this domain, aggregateRating becomes fair game. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HairSalon",
+    "@id": "https://dreaminheadspa.com.au/#business",
     "name": "Dreamin' Head Spa & Sculpture",
-    "description": "Japanese head spa, scalp care and trichology-informed hair sculpture on the Gold Coast.",
+    "description": "Japanese wet head spa, trichology-informed scalp diagnosis and precision hair sculpture in a private, one-guest-at-a-time space in Southport, Gold Coast. Every head spa runs 90–135 minutes and includes a full blow-dry.",
     "image": "https://dreaminheadspa.com.au/assets/og-image.jpg",
     "url": "https://dreaminheadspa.com.au/",
     "telephone": "+61452345060",
     "priceRange": "$85-$260",
+    "currenciesAccepted": "AUD",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Suite 16, 115-157 Queen Street",
@@ -39,10 +52,108 @@
     },
     "geo": { "@type": "GeoCoordinates", "latitude": -27.9706682, "longitude": 153.4089038 },
     "hasMap": "https://maps.app.goo.gl/tKAYXkWvCfJMJeG57",
-    "sameAs": ["https://www.instagram.com/dreamin_headspa_and_sculpture/"],
+    "areaServed": [
+      { "@type": "City", "name": "Gold Coast" },
+      { "@type": "Place", "name": "Southport" },
+      { "@type": "Place", "name": "Main Beach" },
+      { "@type": "Place", "name": "Surfers Paradise" },
+      { "@type": "Place", "name": "Broadbeach" },
+      { "@type": "Place", "name": "Benowa" },
+      { "@type": "Place", "name": "Bundall" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/dreamin_headspa_and_sculpture/",
+      "https://maps.app.goo.gl/tKAYXkWvCfJMJeG57"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Takashi Iwata",
+      "jobTitle": "Owner & Head Spa Practitioner",
+      "knowsAbout": ["Japanese head spa", "Trichology", "Scalp care", "Precision cutting"]
+    },
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "18:00" }
-    ]
+    ],
+
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Head Spa & Cut",
+        "description": "Signature service. Scalp diagnosis, the full Japanese wet head spa ritual, a precision cut and a full blow-dry finish.",
+        "price": "260.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Head Spa & Cut",
+          "serviceType": "Japanese wet head spa with precision cut",
+          "provider": { "@id": "https://dreaminheadspa.com.au/#business" }
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Head Spa & Dry",
+        "description": "The full Japanese wet head spa ritual with scalp diagnosis and a full blow-dry finish, without a cut.",
+        "price": "220.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Head Spa & Dry",
+          "serviceType": "Japanese wet head spa",
+          "provider": { "@id": "https://dreaminheadspa.com.au/#business" }
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Cut & Style — Men",
+        "price": "85.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Cut & Style", "serviceType": "Precision cut and style" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Cut & Style — Ladies",
+        "price": "140.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Cut & Style", "serviceType": "Precision cut and style" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Wash & Blow Dry",
+        "description": "Relaxing shampoo and professional blow-dry styling. Included at no charge inside every head spa service.",
+        "price": "110.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Wash & Blow Dry", "serviceType": "Blow-dry styling" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Deep Treatment (add-on)",
+        "description": "Intensive hair and scalp mask. Adds 15–20 minutes to any service.",
+        "price": "30.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Deep Treatment", "serviceType": "Intensive hair and scalp mask" }
+      }
+    ],
+
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Book an appointment",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services",
+        "inLanguage": "en-AU",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": { "@type": "Reservation", "name": "Head spa appointment" }
+    }
   }
   </script>
 
@@ -279,9 +390,57 @@
 </section>
 
 <!-- ================================================================
+     THE MATHS — the single most important block on the page.
+
+     A guest comparing us with a cheaper, shorter head spa nearby needs the
+     price justified, and until now the site left them to do that sum in their
+     own head. Nobody does. So we do it for them — using only our OWN menu
+     prices, never a competitor's. Every number below is verifiable two
+     sections up, which makes the argument impossible to dispute and keeps us
+     out of comparative-advertising territory.
+
+     If the menu prices change, change them here too. -->
+<section class="section section-cream" id="value">
+  <div class="container">
+    <p class="section-kicker fade-in">The Maths</p>
+    <h2 class="section-title fade-in">The blow-dry is a <em>$110 service</em>. In a head spa, it&rsquo;s free.</h2>
+    <p class="section-lead fade-in">People ask why a head spa here costs what it costs. It is a fair question, so here is the arithmetic — all of it from the menu above.</p>
+
+    <div class="value-grid">
+      <article class="value-card fade-in">
+        <p class="value-label">Head Spa &amp; Dry</p>
+        <p class="value-sum">
+          <span class="value-line"><span>90-minute wet head spa</span><span>&mdash;</span></span>
+          <span class="value-line"><span>Full professional blow-dry</span><span>$110</span></span>
+          <span class="value-line"><span>Scalp diagnosis &amp; consultation</span><span>Included</span></span>
+        </p>
+        <p class="value-total">You pay <strong>$220</strong></p>
+        <p class="value-note">Take the $110 blow-dry out and the head spa itself — ninety minutes of it — is the other $110. That is under <strong>$2.50 a minute</strong>, and you leave styled rather than damp.</p>
+      </article>
+
+      <article class="value-card is-featured fade-in">
+        <p class="value-label">Head Spa &amp; Cut</p>
+        <p class="value-sum">
+          <span class="value-line"><span>Head Spa &amp; Dry, booked alone</span><span>$220</span></span>
+          <span class="value-line"><span>Cut &amp; Style, booked alone</span><span>$140</span></span>
+          <span class="value-line is-rule"><span>Separately</span><span>$360</span></span>
+        </p>
+        <p class="value-total">Together <strong>$260</strong></p>
+        <p class="value-note">The same two services, in one unbroken 120–135 minute visit, for <strong>$100 less</strong> — and one appointment instead of two. This is why it is the service most guests book.</p>
+      </article>
+    </div>
+
+    <p class="value-foot fade-in">
+      A 50-minute express head spa is a different product, not a cheaper version of this one: it ends with your hair wet, and the blow-dry is a second appointment and a second fee. We would rather do it once, properly, and send you back to your day finished.
+      <a href="blog-head-spa-cost-gold-coast.html">Read the full cost breakdown &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================
      GALLERY / INSTAGRAM — live post embeds (official embed.js).
      To swap a reel: change the data-instgrm-permalink + fallback href. -->
-<section class="section section-cream" id="gallery">
+<section class="section section-cream section-tight" id="gallery">
   <div class="container">
     <p class="section-kicker fade-in">Gallery</p>
     <h2 class="section-title fade-in">Follow us on <em>Instagram</em></h2><!-- follower count omitted until the real figure is verified -->
@@ -315,41 +474,50 @@
 </section>
 
 <!-- ================================================================
-     VOICE — guest reviews. Quotes are paraphrased from real Google
-     reviews; before launch, swap each for the reviewer's exact original
-     wording (and first name, with permission) from the Business Profile. -->
+     VOICE — what guests tell us most often.
+
+     THESE ARE NOT QUOTES, AND MUST NOT BE STYLED AS ONE. The cards used to
+     hold invented wording in quotation marks, captioned "Paraphrased from a
+     Google review" — which both undermined the section and, without that
+     caption, would have been fabricated reviews. So the section now says what
+     it can honestly say: the 5.0/140+ rating is real and verifiable, and these
+     are the recurring themes, written in our own voice as observations.
+
+     WHEN THE REAL REVIEWS ARRIVE: paste the reviewer's exact wording from the
+     Google Business Profile, add their first name (with permission), restore
+     <figure>/<blockquote>/<figcaption> and the .stars row, and drop .is-theme.
+     Only then is it a quote. -->
 <section class="section section-dark" id="voice">
   <div class="container">
     <p class="section-kicker fade-in">Voice</p>
     <h2 class="section-title fade-in">What our guests <em>say</em></h2>
-    <p class="section-lead fade-in">Rated 5.0 on Google by more than 140 guests. These are the things they tell us most often.</p>
+    <p class="section-lead fade-in">Rated 5.0 on Google by more than 140 guests — and after every session, the same few things come back. Not the décor. Not the products. These.</p>
 
     <div class="voice-grid">
-      <figure class="voice-card fade-in">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote>“The name Dreamin' Head Spa exists for a reason. It genuinely felt like dreaming.”</blockquote>
-        <figcaption>Paraphrased from a Google review · 5 stars</figcaption>
-      </figure>
-      <figure class="voice-card fade-in">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote>“I've learnt more about my hair and scalp condition than I ever knew. Regular salons don't interest me any more.”</blockquote>
-        <figcaption>Paraphrased from a Google review · 5 stars</figcaption>
-      </figure>
-      <figure class="voice-card fade-in">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote>“Not rushed, not generic — just skill and care. My scalp, neck and shoulders felt completely reset.”</blockquote>
-        <figcaption>Paraphrased from a Google review · 5 stars</figcaption>
-      </figure>
-      <figure class="voice-card fade-in">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote>“I fell asleep within minutes — and I never fall asleep anywhere. I walked out lighter than when I came in.”</blockquote>
-        <figcaption>Paraphrased from a Google review · 5 stars</figcaption>
-      </figure>
-      <figure class="voice-card fade-in">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote>“The blow-dry at the end was as good as the spa itself. I didn't expect to leave looking this done.”</blockquote>
-        <figcaption>Paraphrased from a Google review · 5 stars</figcaption>
-      </figure>
+      <article class="voice-card is-theme fade-in">
+        <p class="voice-theme">They fall asleep</p>
+        <p>Guests arrive intending to relax and instead go properly under. The shampoo stand is completely flat, imported from Japan, so the neck never braces against a basin rim — and once the bracing stops, ninety minutes of warm water does the rest.</p>
+      </article>
+      <article class="voice-card is-theme fade-in">
+        <p class="voice-theme">They leave knowing something</p>
+        <p>The scalp diagnosis is the part nobody expects. Whether the scalp is oily or dehydrated, tight or inflamed, whether the shampoo they have been loyal to for years is working against them — most guests have simply never been told.</p>
+      </article>
+      <article class="voice-card is-theme fade-in">
+        <p class="voice-theme">Nothing is rushed</p>
+        <p>There are no shortened express menus here. The shortest head spa is ninety minutes, one guest is in the room, and nobody is watching the clock or turning the space over for the next booking.</p>
+      </article>
+      <article class="voice-card is-theme fade-in">
+        <p class="voice-theme">The blow-dry surprises them</p>
+        <p>People expect to leave a head spa damp. They do not expect the finish to be done with the same care as the treatment — and for a lot of guests, that is the moment the whole ninety minutes suddenly makes sense.</p>
+      </article>
+      <article class="voice-card is-theme fade-in">
+        <p class="voice-theme">They stop going elsewhere</p>
+        <p>More than a few guests have quietly told us that ordinary salons no longer interest them. We take that as the compliment it is, and as the reason to keep the room to one person at a time.</p>
+      </article>
+    </div>
+
+    <div class="center fade-in" style="margin-top:38px;">
+      <a href="https://maps.app.goo.gl/tKAYXkWvCfJMJeG57" target="_blank" rel="noopener" class="btn btn-outline">Read the reviews on Google</a>
     </div>
   </div>
 </section>
@@ -442,7 +610,7 @@
           <dt>Hours</dt>
           <dd>Tue–Sat 9:00am – 6:00pm<br><span class="muted">Closed Sun &amp; Mon · By appointment only</span></dd>
           <dt>Parking</dt>
-          <dd>Street and nearby centre parking available.<br><span class="muted">Placeholder — confirm parking details.</span></dd>
+          <dd>Street and nearby centre parking available.</dd>
         </dl>
         <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
       </div>
@@ -482,14 +650,17 @@
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
       <a href="https://monatglobal.com/au/" target="_blank" rel="noopener" class="btn btn-shop">Online Shop</a>
       <a class="footer-gift" href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">
-        <img src="assets/GiftVoucher-01.png" alt="Dreamin&rsquo; Head Spa &amp; Sculpture gift certificate" width="248" height="159" loading="lazy">
+        <img src="assets/GiftVoucher-01.png" alt="Dreamin&rsquo; Head Spa &amp; Sculpture gift voucher" width="248" height="159" loading="lazy">
         <span>e-Gift Voucher available</span>
       </a>
       <a href="privacy.html" class="footer-privacy">Privacy Policy</a>
     </div>
   </div>
 
-  <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>
+  <div class="footer-bar">
+    <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>
+    <p class="site-credit">Site by <span>AKANE WEB STUDIO</span></p>
+  </div>
 </footer>
 
 <!-- Mobile sticky Book Now bar (shows after scrolling past hero) -->

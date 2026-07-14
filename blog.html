@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal | Dreamin' Head Spa &amp; Sculpture — Japanese Head Spa, Gold Coast</title>
-  <meta name="description" content="The Dreamin' journal — Takashi's story, guest experiences and practical scalp &amp; hair care advice from a Japanese head spa in Southport, Gold Coast.">
+  <title>Journal | Head Spa Prices, Guides &amp; Scalp Advice — Dreamin', Gold Coast</title>
+  <meta name="description" content="Straight answers from a Southport head spa owner: what a head spa costs on the Gold Coast, wet vs dry vs scalp massage, what happens in your first 90 minutes, and what your scalp is trying to tell you.">
   <link rel="canonical" href="https://dreaminheadspa.com.au/blog.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Journal | Dreamin' Head Spa &amp; Sculpture">
-  <meta property="og:description" content="Takashi's story, guest experiences and practical scalp &amp; hair care advice from a Japanese head spa on the Gold Coast.">
+  <meta property="og:title" content="The Dreamin' Journal — Head Spa Guides &amp; Scalp Advice">
+  <meta property="og:description" content="What a head spa really costs, what happens in ninety minutes, and what your scalp is trying to tell you — written by the person who performs the treatments.">
   <meta property="og:url" content="https://dreaminheadspa.com.au/blog.html">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Blog schema: names the Journal as a body of work by a named practitioner,
+       which is what AI Mode reads when deciding whose answer to quote. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The Dreamin' Journal",
+    "description": "Head spa guides, pricing breakdowns and scalp advice from Takashi Iwata, a Japanese-trained head spa practitioner in Southport, Gold Coast.",
+    "url": "https://dreaminheadspa.com.au/blog.html",
+    "inLanguage": "en-AU",
+    "publisher": { "@type": "Organization", "name": "Dreamin' Head Spa & Sculpture", "url": "https://dreaminheadspa.com.au/" },
+    "author": { "@type": "Person", "name": "Takashi Iwata", "jobTitle": "Owner & Head Spa Practitioner" }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -49,26 +65,100 @@
 <section class="page-hero">
   <p class="hero-kicker">Journal</p>
   <h1>Notes from <em>the chair</em></h1>
-  <p class="page-hero-sub">Takashi's story, what guests take away from a session, and the scalp and hair advice we find ourselves giving most often.</p>
+  <p class="page-hero-sub">Straight answers about what a head spa is, what it costs and what it does — written by the person who performs them.</p>
 </section>
 
 <!-- ============ POSTS ============
      Filter + grid. Each card carries data-cat; the buttons toggle
      .is-hidden (see script.js). In WordPress these become categories —
-     "All" is the default view, exactly as here. -->
+     "All" is the default view, exactly as here.
+
+     ORDER IS DELIBERATE. The two commercial posts (cost, Father's Day) lead,
+     because they are the ones a guest reads immediately before booking. The
+     owner's story sits mid-grid rather than first: it is the strongest E-E-A-T
+     asset on the site, but it converts nobody who has not already decided. -->
 <section class="section section-cream">
   <div class="container">
 
     <div class="blog-filters fade-in" role="group" aria-label="Filter articles by category">
       <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
-      <button class="filter-btn" data-filter="owner" aria-pressed="false">Owner's Story</button>
-      <button class="filter-btn" data-filter="guest" aria-pressed="false">Guest Experiences</button>
+      <button class="filter-btn" data-filter="guide" aria-pressed="false">Head Spa Guide</button>
       <button class="filter-btn" data-filter="tips" aria-pressed="false">Hair &amp; Scalp Tips</button>
+      <button class="filter-btn" data-filter="gift" aria-pressed="false">Gifts</button>
+      <button class="filter-btn" data-filter="owner" aria-pressed="false">Owner's Story</button>
     </div>
 
     <div class="post-grid" id="postGrid">
 
-      <!-- 01 — Owner's Story -->
+      <!-- 01 — the money post: answers the question a guest asks right before booking -->
+      <article class="post-card fade-in" data-cat="guide">
+        <!-- TODO: replace with a photo of the menu / price card, or the treatment room -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: the Dreamin' treatment room, set for a guest">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Head Spa Guide</p>
+          <h3><a href="blog-head-spa-cost-gold-coast.html">How much should a head spa actually cost?</a></h3>
+          <p class="post-excerpt">Prices on the Gold Coast run from $60 to $260. Here is where every dollar of mine goes — including the parts that argue against me.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 — seasonal: Father's Day is Sunday 6 September 2026. Vouchers sell in August. -->
+      <article class="post-card fade-in" data-cat="gift">
+        <!-- TODO: replace with a photo of the gift voucher, or a male guest mid-treatment -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: the Dreamin' e-Gift Voucher">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Gifts</p>
+          <h3><a href="blog-fathers-day-gift-gold-coast.html">A gift for the man who buys his own things</a></h3>
+          <p class="post-excerpt">Father's Day falls on Sunday 6 September. If he already owns everything, give him ninety minutes of nothing instead.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 — category education: catches everyone comparing us with a cheaper option -->
+      <article class="post-card fade-in" data-cat="guide">
+        <!-- TODO: replace with a side-by-side of the dry chair vs the wet basin -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: warm water running over a guest's scalp at the basin">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Head Spa Guide</p>
+          <h3><a href="blog-wet-vs-dry-head-spa.html">Wet, dry, or just a scalp massage?</a></h3>
+          <p class="post-excerpt">Three treatments share the same name and do completely different things. Book the wrong one and you will think head spas are overrated.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 — removes the last hesitation before a first booking -->
+      <article class="post-card fade-in" data-cat="guide">
+        <!-- TODO: replace with a photo of the flat Japanese shampoo stand -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: the flat Japanese shampoo stand, set up for a treatment">
+          <span class="img-label">IMAGE</span>
+        </div>
+        <div class="post-body">
+          <p class="post-cat">Head Spa Guide</p>
+          <h3><a href="blog-first-head-spa-what-to-expect.html">What actually happens in ninety minutes</a></h3>
+          <p class="post-excerpt">The consultation, the scalp diagnosis, the treatment and the blow-dry — walked through step by step, so nothing is a surprise.</p>
+          <div class="post-meta">
+            <span>Takashi Iwata</span>
+            <span class="post-more">Read <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 — Owner's Story: the E-E-A-T anchor; slug targets "japanese head spa gold coast" -->
       <article class="post-card fade-in" data-cat="owner">
         <!-- TODO: replace with a portrait of Takashi at work -->
         <div class="post-media img-placeholder" role="img" aria-label="Placeholder: Takashi at the shampoo stand in the treatment room">
@@ -85,24 +175,24 @@
         </div>
       </article>
 
-      <!-- 02 — Guest Experiences -->
-      <article class="post-card fade-in" data-cat="guest">
-        <!-- TODO: replace with a photo of a guest mid-treatment (with permission) -->
-        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: guest relaxing during the head spa treatment">
+      <!-- 06 — speaks directly to the target segment: doctors, lawyers, accountants -->
+      <article class="post-card fade-in" data-cat="guide">
+        <!-- TODO: replace with a photo of a guest asleep mid-treatment (with permission) -->
+        <div class="post-media img-placeholder" role="img" aria-label="Placeholder: a guest completely relaxed during the head spa">
           <span class="img-label">IMAGE</span>
         </div>
         <div class="post-body">
-          <p class="post-cat">Guest Experiences</p>
-          <h3><a href="blog-what-guests-say.html">“I didn't know my scalp could feel like this”</a></h3>
-          <p class="post-excerpt">What guests tell us after their first wet head spa — and the one comment we hear more than any other.</p>
+          <p class="post-cat">Head Spa Guide</p>
+          <h3><a href="blog-head-spa-for-professionals.html">For people who think for a living</a></h3>
+          <p class="post-excerpt">Why ninety minutes where nothing is asked of you works so well on a head that spends all day making decisions.</p>
           <div class="post-meta">
-            <span>Dreamin' Team</span>
+            <span>Takashi Iwata</span>
             <span class="post-more">Read <span aria-hidden="true">→</span></span>
           </div>
         </div>
       </article>
 
-      <!-- 03 — Hair & Scalp Tips -->
+      <!-- 07 — seasonal: it is winter now, and this is what August does to a scalp -->
       <article class="post-card fade-in" data-cat="tips">
         <!-- TODO: replace with a scalp-diagnosis / microscope camera photo -->
         <div class="post-media img-placeholder" role="img" aria-label="Placeholder: close-up scalp diagnosis with a microscope camera">
@@ -110,8 +200,8 @@
         </div>
         <div class="post-body">
           <p class="post-cat">Hair &amp; Scalp Tips</p>
-          <h3><a href="blog-scalp-signs.html">Itchy scalp, oily roots, no volume: what your scalp is telling you</a></h3>
-          <p class="post-excerpt">Three signals we see every week in the chair, what usually causes them, and what actually helps.</p>
+          <h3><a href="blog-winter-scalp-gold-coast.html">Why your scalp itches in August</a></h3>
+          <p class="post-excerpt">Hotter showers, drier air, and the anti-dandruff shampoo that is quietly making it worse. What a Queensland winter does to a scalp.</p>
           <div class="post-meta">
             <span>Takashi Iwata</span>
             <span class="post-more">Read <span aria-hidden="true">→</span></span>
@@ -156,14 +246,17 @@
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
       <a href="https://monatglobal.com/au/" target="_blank" rel="noopener" class="btn btn-shop">Online Shop</a>
       <a class="footer-gift" href="https://squareup.com/gift/MLQVZAMV1H1ND/order" target="_blank" rel="noopener">
-        <img src="assets/GiftVoucher-01.png" alt="Dreamin&rsquo; Head Spa &amp; Sculpture gift certificate" width="248" height="159" loading="lazy">
+        <img src="assets/GiftVoucher-01.png" alt="Dreamin&rsquo; Head Spa &amp; Sculpture gift voucher" width="248" height="159" loading="lazy">
         <span>e-Gift Voucher available</span>
       </a>
       <a href="privacy.html" class="footer-privacy">Privacy Policy</a>
     </div>
   </div>
 
-  <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>
+  <div class="footer-bar">
+    <p class="copyright">&copy; 2026 Dreamin&rsquo; Head Spa &amp; Sculpture. All rights reserved.</p>
+    <p class="site-credit">Site by <span>AKANE WEB STUDIO</span></p>
+  </div>
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
