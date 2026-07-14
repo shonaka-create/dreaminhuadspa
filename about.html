@@ -11,6 +11,29 @@
   <meta property="og:description" content="Japanese-quality technique meets Gold Coast serenity. Our philosophy, our craft, our private space.">
   <meta property="og:url" content="https://dreaminheadspa.com.au/about.html">
   <meta property="og:locale" content="en_AU">
+
+  <!-- Person schema for the practitioner. The Japanese hairdressing licence is the
+       one credential a cheaper local competitor cannot obtain, so it is stated in
+       machine-readable form as well as in the copy — this is what AI Mode reads
+       when deciding who is actually qualified to answer a head spa question. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Takashi Iwata",
+    "jobTitle": "Owner & Head Spa Practitioner",
+    "worksFor": { "@type": "HairSalon", "name": "Dreamin' Head Spa & Sculpture", "@id": "https://dreaminheadspa.com.au/#business" },
+    "url": "https://dreaminheadspa.com.au/about.html",
+    "knowsAbout": ["Japanese head spa", "Wet head spa", "Trichology", "Scalp care", "Precision cutting"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional licence",
+      "name": "Japanese Hairdressing Licence",
+      "description": "Qualified hairdresser under Japanese law, where a wet head spa may only be performed by a licensed hairdresser because the products applied to the scalp are chemical. Hairdressing is not a licensed trade in Australia.",
+      "recognizedBy": { "@type": "Country", "name": "Japan" }
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -84,7 +107,7 @@
       <div class="fade-in">
         <p class="section-kicker">The Artisan</p>
         <h2 class="section-title">Twenty years of <em>Japanese craft</em></h2>
-        <p class="section-lead" style="margin-bottom:24px;">Founder Takashi Iwata trained in the hair industry in Japan and has spent more than twenty years behind the chair. He has competed at brand level with Goldwell, KMS and L&rsquo;Or&eacute;al Professionnel, and worked backstage at major fashion parades in Sydney and Melbourne — where a hundred heads have to be finished perfectly, and finished fast.</p>
+        <p class="section-lead" style="margin-bottom:24px;">Founder Takashi Iwata is a <strong>qualified Japanese hairdresser</strong> with more than twenty years behind the chair. He has competed at brand level with Goldwell, KMS and L&rsquo;Or&eacute;al Professionnel, and worked backstage at major fashion parades in Sydney and Melbourne — where a hundred heads have to be finished perfectly, and finished fast.</p>
         <p class="section-lead" style="margin-bottom:24px;">That work teaches speed and precision. The head spa, he says, teaches the opposite: patience. When he could not find a true Japanese wet head spa anywhere on the Gold Coast, he imported a completely flat shampoo stand from Japan — the one detail that lets a guest&rsquo;s neck release for ninety minutes instead of bracing against a basin rim — and built the room around it.</p>
         <p class="section-lead" style="margin-bottom:0;">Today every session at Dreamin&rsquo; begins with his trichology-informed scalp diagnosis, and ends with a full blow-dry. <a href="blog-japanese-head-spa-gold-coast.html" style="color:var(--gold-soft);">Read the full story in his own words &rarr;</a></p>
       </div>
@@ -113,10 +136,13 @@
         <h3>A finished result</h3>
         <p>Every service ends with a full professional blow-dry. You leave composed, styled, ready.</p>
       </article>
+      <!-- Replaces the old "Informed care" card. Regulation is the one advantage a
+           cheaper competitor cannot buy, and the old card said little that the
+           other three didn't. Trichology is folded in here so nothing is lost. -->
       <article class="why-card fade-in">
         <span class="why-num" aria-hidden="true">04</span>
-        <h3>Informed care</h3>
-        <p>Trichology-based scalp diagnosis guides every treatment — considered, personal, precise.</p>
+        <h3>A qualified hairdresser</h3>
+        <p>In Japan, only a licensed hairdresser may perform a wet head spa — the products are chemistry. Takashi holds that qualification, and reads every scalp before he begins.</p>
       </article>
     </div>
   </div>
