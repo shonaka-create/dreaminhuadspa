@@ -37,7 +37,7 @@ assets/       … ロゴ + ヒーロー画像(hero-1.jpg / hero-2.jpg / hero-3.j
 - 全ページ `lang="en-AU"` + `og:locale=en_AU`。
 - 構造化データ: `HairSalon`(index / makesOffer 全メニュー + ReserveAction + founder)、`Blog`(blog.html)、`BlogPosting`(各記事 / 著者 = Takashi Iwata)。
   **`aggregateRating` は意図的に入れていない** — 5.0/140件は Google レビュー(第三者集計)であり、自社 schema でのマークアップは Google のリッチリザルト規約違反。手動対策のリスクがあるため `sameAs` で GBP と紐づける形にしている。自社サイトで一次レビューを集め始めたら追加可。
-- **The Maths(価格正当化ブロック)**: `index.html` / `menu.html` の `#value`。自社メニューの数字のみで $220 を正当化する。**メニュー価格を変えたらここも必ず同期すること**。
+- 価格の正当化(ブロー単体は $110 の商品 → $220 のヘッドスパに込み、等)は **記事 `blog-head-spa-cost-gold-coast.html` に集約**。トップ/メニューに置いていた "The Maths" セクションはオーナー判断で削除済み(2026-07-14)。
 - Journal: 7記事。`blog-head-spa-cost-gold-coast`(価格) と `blog-fathers-day-gift-gold-coast`(9/6 父の日) が集客の主力。
 
 ## 残タスク(TODO)
