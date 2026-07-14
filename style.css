@@ -1648,3 +1648,39 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   line-height: 1.7;
   color: rgba(244, 240, 233, 0.78);
 }
+
+/* ==========================================================================
+   Real photography in the media slots
+   .post-media / .spa-type-media were placeholder <div>s; they are now <img>.
+   The aspect-ratio already lives on those classes, so all the image needs is
+   to fill the box and crop rather than distort. Most of the source photos are
+   tall portraits going into landscape frames, hence object-position: center —
+   the subject (the head at the basin) sits mid-frame in every one.
+   ========================================================================== */
+/* Journal cards carry the photo in TWO different shapes and both must look the
+   same:
+     static build → <img class="post-media">            (what wp/build.mjs parses)
+     WordPress    → <div class="post-media"><img></div> (what the_post_thumbnail emits)
+   .post-media already sets aspect-ratio: 3/2, so the box is fixed either way and
+   the photo only has to fill it and crop. Keep both selectors in step. */
+img.post-media,
+.post-media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* On the <img> form, aspect-ratio + height:100% would resolve against the card's
+   flex height; pin it to the ratio instead. */
+img.post-media { height: auto; flex: none; }
+.post-media { overflow: hidden; }
+
+/* Home page: the two head-spa type cards. The <img> IS the media element here,
+   and .spa-type-media carries aspect-ratio: 4/3. */
+img.spa-type-media {
+  width: 100%;
+  height: auto;
+  flex: none;
+  object-fit: cover;
+  object-position: center;
+}
