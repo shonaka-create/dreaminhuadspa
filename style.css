@@ -1508,6 +1508,31 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   text-transform: uppercase;
 }
 
+/* Inline "read more" link that sits at the end of a paragraph. Given a standing
+   underline + arrow so it reads as an interactive control at rest (not body
+   text), and a colour lift + arrow slide on hover/focus. */
+.inline-link {
+  display: inline-block;
+  color: var(--gold-soft);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(205, 181, 135, 0.45);
+  padding-bottom: 1px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.inline-link:hover,
+.inline-link:focus-visible {
+  color: #ecdcb4;
+  border-bottom-color: #ecdcb4;
+}
+.inline-link-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease);
+}
+.inline-link:hover .inline-link-arrow,
+.inline-link:focus-visible .inline-link-arrow {
+  transform: translateX(5px);
+}
+
 /* ---------- Language scaffold: hide JA-only lines in EN mode etc. ---------- */
 /* Elements marked lang="ja" that are supplementary stay visible in both modes.
    Full bilingual content swap: add [data-en]/[data-ja] handling in script.js. */
