@@ -1513,6 +1513,40 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   text-transform: uppercase;
   color: rgba(43, 38, 34, 0.5);
 }
+/* Comparison tables (hard vs soft water, treatment vs mask, iron temperatures…).
+   The wrapper scrolls on its own so a two-column table never widens the page on a
+   phone; the table itself stays full width inside it. */
+.article-table {
+  overflow-x: auto;
+  margin: 32px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.article table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 16px;
+}
+.article thead th {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--ink);
+  background: rgba(176, 141, 79, 0.09);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gold);
+}
+.article tbody td {
+  padding: 14px 20px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid rgba(43, 38, 34, 0.08);
+  vertical-align: top;
+}
+.article tbody tr:last-child td { border-bottom: 0; }
 .article-back {
   display: inline-block;
   margin-top: 50px;
