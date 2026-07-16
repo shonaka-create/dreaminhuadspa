@@ -620,7 +620,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .menu-includes-head + li { padding-top: 4px; }
 .menu-includes li.menu-includes-head:not(:first-child) { padding-top: 20px; }
 .menu-includes-head::before { content: none; }
-.menu-includes-head span { color: rgba(244, 240, 233, 0.5); font-weight: 500; letter-spacing: 0.08em; }
 
 /* ---------- What is a Head Spa? ----------
    Dry vs wet, stacked one above the other so the comparison reads
