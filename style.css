@@ -345,6 +345,14 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: var(--white);
   margin-bottom: 26px;
 }
+/* The serif's old-style "10" reads as an ambiguous glyph, so set just the
+   numerals in the sans face — same visual size, a touch heavier to stand out. */
+.hero h1 .hero-num {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+}
 .hero-sub {
   font-size: clamp(16px, 2vw, 19px);
   color: rgba(255, 253, 249, 0.85);
