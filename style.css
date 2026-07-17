@@ -508,7 +508,13 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   letter-spacing: 0.02em;
   pointer-events: none;
 }
-.why-card h3 { font-size: 25px; margin-bottom: 12px; min-height: 63px; }   /* 2 lines — keeps body copy on one baseline */
+.why-card h3 {
+  font-size: 25px; margin-bottom: 12px; min-height: 63px;   /* 2 lines — keeps body copy on one baseline */
+  /* Lining figures: Cormorant's old-style "10" otherwise drops below the
+     x-height and reads as "ıo" — same fix as .hero-num / .why-num. */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
 .why-card p { font-size: 16px; color: var(--ink-soft); }
 
 /* ---------- Menu ----------
@@ -1604,6 +1610,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 @media (min-width: 640px) {
   .hide-sm { display: inline; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Five-card variant (home): flex so the odd row centres itself — 2+2+1 here,
+     3+2 on desktop — instead of leaving an orphan in the first grid column. */
+  .why-grid.is-five { display: flex; flex-wrap: wrap; justify-content: center; }
+  .why-grid.is-five .why-card { flex: 0 0 calc((100% - 32px) / 2); }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
   .ig-grid > * { flex-basis: min(46%, 320px); }
 
@@ -1663,6 +1673,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .section { padding: 150px 0; }
   .section-tight { padding-top: 0; }
   .why-grid { grid-template-columns: repeat(4, 1fr); }
+  .why-grid.is-five .why-card { flex-basis: calc((100% - 64px) / 3); }
   .menu-grid { grid-template-columns: repeat(3, 1fr); }
   /* On desktop the four reels fill the rail exactly, so nothing scrolls. */
   .ig-grid > * { flex-basis: calc((100% - 48px) / 4); }
