@@ -1588,6 +1588,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 /* ---------- Breakpoints ---------- */
 .hide-sm { display: none; }
 
+/* Keep the hero H1's first line unbroken on desktop only; mobile may wrap. */
+@media (min-width: 640px) {
+  .hero-nowrap { white-space: nowrap; }
+}
+
 @media (min-width: 640px) {
   .hide-sm { display: inline; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
