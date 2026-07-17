@@ -345,13 +345,13 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   color: var(--white);
   margin-bottom: 26px;
 }
-/* The serif's old-style "10" reads as an ambiguous glyph, so set just the
-   numerals in the sans face — same visual size, a touch heavier to stand out. */
+/* Keep "10" in the heading serif, but force lining figures so 1 and 0 sit at
+   the same height — the same fix used on the .why-num "01/02/03/04" numerals.
+   Without this, Cormorant falls back to old-style figures and the "10" reads
+   as an ambiguous glyph. */
 .hero h1 .hero-num {
-  font-family: 'Jost', sans-serif;
-  font-weight: 600;
-  font-size: 0.9em;
-  letter-spacing: 0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 .hero-sub {
   font-size: clamp(16px, 2vw, 19px);
