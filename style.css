@@ -1418,7 +1418,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   gap: 44px 30px;
 }
 .post-card {
-  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--white);
@@ -1426,14 +1425,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-}
-/* Stretch the title link over the whole card so the image and the
-   "Read →" affordance navigate too — not just the heading text. */
-.post-card h3 a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
 }
 .post-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(43, 38, 34, 0.09); }
 .post-card.is-hidden { display: none; }
@@ -1473,10 +1464,9 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   text-transform: uppercase;
   color: rgba(43, 38, 34, 0.5);
 }
-/* "Read →" affordance. Default is black; it warms to gold on hover/press,
-   and the arrow slides forward (on-tone with .inline-link-arrow). No
-   underline. The whole card is the link (stretched above), so hover/focus/
-   press on the card drives this. */
+/* "Read →" is its own link (alongside the title), so pressing it reacts on
+   Read itself — not on the title. Default black; warms to gold on hover/press
+   with the arrow sliding forward (on-tone with .inline-link-arrow). No underline. */
 .post-more {
   color: var(--ink);
   font-weight: 600;
@@ -1485,24 +1475,23 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   transition: color 0.3s var(--ease);
 }
 .post-more span { display: inline-block; transition: transform 0.3s var(--ease); }
-/* Hover reacts to a real pointer only, so the gold never "sticks" on a card
-   after a touch tap — on phones the card returns to black once you navigate
-   back. */
+/* Hover reacts to a real pointer only, so the gold never "sticks" on Read
+   after a touch tap — it returns to black once you navigate back. */
 @media (hover: hover) and (pointer: fine) {
-  .post-card:hover .post-more,
-  .post-card:focus-within .post-more { color: var(--gold); }
-  .post-card:hover .post-more span,
-  .post-card:focus-within .post-more span { transform: translateX(5px); }
+  .post-more:hover,
+  .post-more:focus-visible { color: var(--gold); }
+  .post-more:hover span,
+  .post-more:focus-visible span { transform: translateX(5px); }
 }
 /* Press feedback (touch + keyboard) — momentary gold + arrow nudge, and it
    clears the instant you release, so nothing lingers after you come back. */
-.post-card:active .post-more { color: var(--gold); }
-.post-card:active .post-more span { transform: translateX(9px); }
+.post-more:active { color: var(--gold); }
+.post-more:active span { transform: translateX(9px); }
 @media (prefers-reduced-motion: reduce) {
   .post-more span,
-  .post-card:hover .post-more span,
-  .post-card:focus-within .post-more span,
-  .post-card:active .post-more span { transition: none; transform: none; }
+  .post-more:hover span,
+  .post-more:focus-visible span,
+  .post-more:active span { transition: none; transform: none; }
 }
 
 /* Empty state when a filter matches nothing (relevant once posts are real) */
