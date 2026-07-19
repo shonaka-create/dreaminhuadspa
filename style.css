@@ -1225,6 +1225,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .fade-in.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .fade-in { opacity: 1; transform: none; transition: none; }
+  /* Keep the "Read →" colour/underline state change, but hold the arrow still. */
+  .post-more span { transition: none; }
+  .post-card:hover .post-more span,
+  .post-card:focus-within .post-more span,
+  .post-card:active .post-more span { transform: none; }
   html { scroll-behavior: auto; }
 }
 /* Sibling .fade-in elements get an incremental transition-delay from
@@ -1435,7 +1440,6 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   inset: 0;
   z-index: 1;
 }
-.post-card .post-more { cursor: pointer; }
 .post-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(43, 38, 34, 0.09); }
 .post-card.is-hidden { display: none; }
 .post-media {
@@ -1474,8 +1478,42 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   text-transform: uppercase;
   color: rgba(43, 38, 34, 0.5);
 }
-.post-more { color: var(--gold); font-weight: 600; white-space: nowrap; }
-.post-card:hover .post-more { color: var(--ink); }
+/* "Read →" affordance. Restrained, and on-tone with the rest of the site:
+   the arrow slides forward like .inline-link-arrow, and an underline sweeps
+   in like .inline-link's border — both on the card's own --ease curve. The
+   whole card is the link (stretched above), so hover/focus/tap on it drives
+   these. :active gives touch a visible press, where there is no hover. */
+.post-more {
+  position: relative;
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+.post-more span { display: inline-block; transition: transform 0.3s var(--ease); }
+.post-more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.post-card:hover .post-more,
+.post-card:focus-within .post-more { color: var(--ink); }
+.post-card:hover .post-more::after,
+.post-card:focus-within .post-more::after { transform: scaleX(1); }
+.post-card:hover .post-more span,
+.post-card:focus-within .post-more span { transform: translateX(5px); }
+/* Touch press: arrow springs a little further and the label warms to gold,
+   so the tap registers before the page navigates. */
+.post-card:active .post-more { color: var(--gold); }
+.post-card:active .post-more span { transform: translateX(9px); }
 
 /* Empty state when a filter matches nothing (relevant once posts are real) */
 .post-empty {
