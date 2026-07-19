@@ -74,7 +74,12 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      // threshold 0 (reveal as soon as any part enters), NOT a fraction:
+      // a fractional threshold is unreachable for elements taller than the
+      // viewport — e.g. a long article on a narrow phone, whose visible-
+      // height / total-height never reaches 12%, so it would stay opacity:0
+      // (blank) forever. rootMargin still delays the reveal slightly.
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     faders.forEach(function (el) { io.observe(el); });
   } else {

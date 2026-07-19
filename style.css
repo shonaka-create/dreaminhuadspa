@@ -1418,6 +1418,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   gap: 44px 30px;
 }
 .post-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--white);
@@ -1426,6 +1427,15 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   overflow: hidden;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
+/* Stretch the title link over the whole card so the image and the
+   "Read →" affordance navigate too — not just the heading text. */
+.post-card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.post-card .post-more { cursor: pointer; }
 .post-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(43, 38, 34, 0.09); }
 .post-card.is-hidden { display: none; }
 .post-media {
@@ -1506,6 +1516,22 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .article p { font-size: 17px; color: var(--ink-soft); margin-bottom: 18px; }
 .article ul { padding-left: 22px; margin-bottom: 18px; }
 .article li { font-size: 17px; color: var(--ink-soft); margin-bottom: 8px; }
+/* Inline links in the article body (product names etc.). Plain gold on the
+   light background reads as body copy, so give them the same underlined-amber
+   affordance as .inline-link — using the deeper --gold for contrast on cream.
+   Buttons (.btn) and the "Back to Journal" link keep their own styling. */
+.article a:not(.btn):not(.article-back) {
+  color: var(--gold);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(179, 146, 79, 0.5);
+  padding-bottom: 1px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.article a:not(.btn):not(.article-back):hover,
+.article a:not(.btn):not(.article-back):focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
 .article blockquote {
   margin: 36px 0;
   padding: 28px 30px;
