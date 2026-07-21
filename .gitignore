@@ -5,5 +5,6 @@
 # that the pages actually reference get committed (e.g. assets/blog/*.jpg,
 # assets/hero-main.jpg) — the originals are heavy and never served.
 assets/Blog image/
+assets/スクリーンショット*
 assets/*.HEIC
 assets/*.mp4
