@@ -1,2 +1,9 @@
 .vercel
 .env*
+
+# Source material dropped into assets/ by hand. Only the optimised derivatives
+# that the pages actually reference get committed (e.g. assets/blog/*.jpg,
+# assets/hero-main.jpg) — the originals are heavy and never served.
+assets/Blog image/
+assets/*.HEIC
+assets/*.mp4
