@@ -635,6 +635,49 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .menu-includes li.menu-includes-head:not(:first-child) { padding-top: 20px; }
 .menu-includes-head::before { content: none; }
 
+/* ---------- Menu card: "View detail" ----------
+   What's included is the detail, not the offer — folding it away keeps every
+   card to name / duration / price / CTA at a glance, and makes the six cards
+   comparable in one screen. Built on <details> like the FAQ, so it opens with
+   JS disabled. The booking button deliberately stays outside the toggle. */
+.menu-detail {
+  flex: 1;
+  margin-bottom: 32px;
+}
+.menu-detail summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  transition: color 0.3s var(--ease);
+}
+.menu-detail summary::-webkit-details-marker { display: none; }
+.menu-detail summary:hover { color: var(--gold); }
+/* Reuses the FAQ's gold plus/minus, one size down to sit on a 12px label. */
+.menu-detail .faq-icon { width: 26px; height: 26px; margin-top: 0; }
+.menu-detail .faq-icon::before,
+.menu-detail .faq-icon::after { width: 11px; }
+.menu-detail[open] .faq-icon { background: var(--gold-soft); }
+.menu-detail[open] .faq-icon::before,
+.menu-detail[open] .faq-icon::after { background: var(--ink); }
+.menu-detail[open] .faq-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.menu-detail .menu-includes {
+  flex: none;
+  margin: 6px 0 0;
+  animation: faqReveal 0.45s var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-detail .menu-includes { animation: none; }
+}
+
 /* ---------- What is a Head Spa? ----------
    Dry vs wet, stacked one above the other so the comparison reads
    top-to-bottom, each with its own image. */
