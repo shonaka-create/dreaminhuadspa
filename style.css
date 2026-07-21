@@ -303,6 +303,13 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   opacity: 1;
   animation: heroZoom 8s linear forwards;
 }
+/* The hero photo is landscape and the guest's face sits in its right third. On a
+   phone the frame is far narrower than the photo, so a centred `cover` crop lands
+   on the middle of the bed and leaves the face — the whole point of the shot —
+   outside the frame. Pull the crop across to it. */
+@media (max-width: 639px) {
+  .hero-slide { background-position: 82% center; }
+}
 @keyframes heroZoom {
   from { transform: scale(1); }
   to { transform: scale(1.07); }
