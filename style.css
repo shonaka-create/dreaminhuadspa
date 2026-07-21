@@ -445,6 +445,9 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 .section-kicker {
+  /* Stated, not inherited: a section whose only heading is its kicker sets it as
+     an <h2>, and must still look exactly like the <p> kickers everywhere else. */
+  font-family: var(--sans);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.4em;
@@ -467,6 +470,17 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .section-dark .section-kicker { color: var(--gold-soft); }
 .section-title { font-size: clamp(34px, 5vw, 56px); line-height: 1.15; margin-bottom: 18px; }
 .section-lead { max-width: 600px; font-size: 17.5px; color: var(--ink-soft); margin-bottom: 64px; }
+/* The line a block of copy closes on — the owner's own words, given the serif and
+   the full ink colour so it reads as the conclusion, not another paragraph. */
+.statement {
+  max-width: 600px;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.section-dark .statement { color: var(--cream); }
 .section-dark .section-lead { color: rgba(244, 240, 233, 0.72); }
 
 .center { text-align: center; }
@@ -526,6 +540,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
+  /* Each card is only as tall as its own content. Stretching them to a common
+     height was fine when the cards were static, but now that "View detail" opens
+     one of them, a shared height would hollow out every other card in the row
+     with the exact amount of space the open one needed. */
+  align-items: start;
 }
 .menu-card {
   position: relative;
@@ -568,21 +587,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   min-height: 97px;          /* reserves the 2-line "Men / Ladies" case */
 }
 
-/* Subgrid does the same alignment exactly, and without reserving dead space:
-   each card's 5 in-flow rows (title / duration / price / list / button) become
-   rows of .menu-grid, so every row is as tall as its tallest card and no taller.
-   The min-heights above remain the fallback for browsers without subgrid. */
-@supports (grid-template-rows: subgrid) {
-  .menu-card {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 5;
-    row-gap: 0;
-  }
-  .menu-card h3,
-  .menu-duration,
-  .menu-price { min-height: 0; }
-}
+/* The cards used to line their rows up with subgrid, which is tighter than the
+   min-heights above — but subgrid rows are shared across the whole grid row, so
+   one open "View detail" pushed every neighbouring card's button down by the same
+   amount and left a hole. The min-heights align the closed state, which is the
+   state a guest compares in, and each card is now free to grow alone. */
 .menu-price sup { font-size: 0.5em; font-weight: 600; vertical-align: 0.62em; margin-right: 1px; }
 .gst {
   font-family: var(--sans);
