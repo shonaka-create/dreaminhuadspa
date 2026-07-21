@@ -306,9 +306,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 /* The hero photo is landscape and the guest's face sits in its right third. On a
    phone the frame is far narrower than the photo, so a centred `cover` crop lands
    on the middle of the bed and leaves the face — the whole point of the shot —
-   outside the frame. Pull the crop across to it. */
+   outside the frame. Pull the crop across to it: at 78% the face, the head-bath
+   cap and the steam all sit in frame from 360px up. */
 @media (max-width: 639px) {
-  .hero-slide { background-position: 82% center; }
+  .hero-slide { background-position: 78% center; }
 }
 @keyframes heroZoom {
   from { transform: scale(1); }
