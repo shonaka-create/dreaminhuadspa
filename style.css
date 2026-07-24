@@ -1589,6 +1589,41 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   border-left: 2px solid var(--gold);
 }
 .article-media { aspect-ratio: 16 / 9; border-radius: 14px; margin: 40px 0; }
+/* In-body photography. Some articles arrive with shots taken during the treatment
+   they describe (see tools/pages-import/figures.py); the caption carries what a
+   guest would be told about that image in the chair. A portrait phone photo at the
+   full 760px column is taller than the viewport, so cap the height and centre it. */
+.article-figure { margin: 40px 0; }
+.article-figure img {
+  display: block;
+  width: auto;
+  height: auto;          /* the width/height attributes are aspect-ratio hints only */
+  max-width: 100%;
+  max-height: 620px;
+  margin: 0 auto;
+  border-radius: 14px;
+}
+.article-figure figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(43, 38, 34, 0.55);
+  text-align: center;
+}
+/* Shots that only mean something side by side (the same scalp, four conditions). */
+.article-figures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+  margin: 40px 0;
+}
+.article-figures .article-figure { margin: 0; }
+.article-figures .article-figure img { width: 100%; height: auto; max-height: none; }
+.article-figures .article-figure figcaption { margin-top: 10px; font-size: 13.5px; }
+@media (max-width: 560px) {
+  .article-figures { grid-template-columns: 1fr; gap: 30px; }
+}
 .article h2 { font-size: 30px; margin: 48px 0 16px; }
 .article p { font-size: 17px; color: var(--ink-soft); margin-bottom: 18px; }
 .article ul { padding-left: 22px; margin-bottom: 18px; }

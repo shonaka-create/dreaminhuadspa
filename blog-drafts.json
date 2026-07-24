@@ -178,5 +178,14 @@
   "author": "Takashi Iwata",
   "img": "blog/blog-07.jpg",
   "alt": "Long, straight hair falling smoothly down the back, seen from behind"
+ },
+ "blog-scalp-consultation": {
+  "cat": "treatments",
+  "catName": "Our Treatments",
+  "title_html": "What is a scalp consultation?",
+  "excerpt": "Every treatment starts with a 200x look at your own scalp. What that shows, what we explain before we begin, and why no two head spas are the same.",
+  "author": "Takashi Iwata",
+  "img": "blog/blog-33-consultation.jpg",
+  "alt": "The scalp camera moved through the hair during a consultation at the Southport studio"
  }
 }
