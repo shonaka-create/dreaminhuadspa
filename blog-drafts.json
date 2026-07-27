@@ -1,13 +1,4 @@
 {
- "blog-dry-hair-before-bed": {
-  "cat": "homecare",
-  "catName": "Home Care",
-  "title_html": "Should you dry your hair before bed?",
-  "excerpt": "Hair is at its weakest when wet, and a damp scalp overnight invites irritation. The right way to dry — and why the scalp comes first.",
-  "author": "Takashi Iwata",
-  "img": "blog/blog-13.jpg",
-  "alt": "Hair spread across white bedding beneath trailing greenery"
- },
  "blog-understanding-oily-scalp": {
   "cat": "scalp",
   "catName": "Scalp & Hair Health",
@@ -43,15 +34,6 @@
   "author": "Takashi Iwata",
   "img": "blog/blog-05.jpg",
   "alt": "Scalp and hair care bottles arranged on pale yellow blocks"
- },
- "blog-what-happens-during-head-spa": {
-  "cat": "treatments",
-  "catName": "Our Treatments",
-  "title_html": "What happens during a Dreamin’ head spa?",
-  "excerpt": "A step-by-step walk through the treatment — consultation, scalp diagnosis, the head spa itself, and the blow-dry finish.",
-  "author": "Takashi Iwata",
-  "img": "blog/blog-01.jpg",
-  "alt": "A head spa treatment underway on the flat shampoo bed in a darkened room"
  },
  "blog-what-is-hair-serum": {
   "cat": "homecare",
