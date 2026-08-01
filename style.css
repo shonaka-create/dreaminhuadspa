@@ -339,16 +339,33 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 /* Two layers, because the slides are no longer a single near-black photo. The
    head-bath shots are bright — pale wall, white water — and over them the gold
    kicker sat at 2.6:1 against #cdb587, well under the 4.5:1 small text needs.
-   The linear pass sets the overall mood; the ellipse does the legibility work,
-   sitting only where the copy is so the photo keeps its light at the edges.
-   Numbers here are measured, not guessed: every line of hero copy clears WCAG
-   AA over all four slides at both breakpoints. */
+   The ellipse does the legibility work and sits only where the copy is; the
+   linear pass is kept as light as the kicker and the scroll cue allow, so the
+   photograph keeps its light everywhere else. The middle of the frame is where
+   the h1 sits and the h1 only needs 3:1, which is what buys the transparency.
+   Numbers are measured, not guessed — see the AA check below. */
 .hero-scrim {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 82% 66% at 50% 42%,
-      rgba(24,20,17,0.72) 0%, rgba(24,20,17,0.44) 58%, rgba(24,20,17,0) 100%),
-    linear-gradient(180deg, rgba(43,38,34,0.78) 0%, rgba(43,38,34,0.58) 45%, rgba(43,38,34,0.80) 100%);
+    radial-gradient(ellipse 74% 62% at 50% 42%,
+      rgba(24,20,17,0.66) 0%, rgba(24,20,17,0.36) 62%, rgba(24,20,17,0) 100%),
+    linear-gradient(180deg,
+      rgba(43,38,34,0.80) 0%, rgba(43,38,34,0.60) 20%,
+      rgba(43,38,34,0.30) 52%, rgba(43,38,34,0.60) 100%);
+}
+/* A phone gets a heavier hand, and not for want of trying to avoid it: the hero
+   is far taller than it is wide there, so the copy covers most of the frame
+   instead of a band across its middle. There is no arrangement that leaves the
+   photo bright *behind the text* when the text is the picture. */
+@media (max-width: 639px) {
+  .hero-scrim {
+    background:
+      radial-gradient(ellipse 100% 64% at 50% 44%,
+        rgba(24,20,17,0.66) 0%, rgba(24,20,17,0.42) 62%, rgba(24,20,17,0) 100%),
+      linear-gradient(180deg,
+        rgba(43,38,34,0.82) 0%, rgba(43,38,34,0.68) 20%,
+        rgba(43,38,34,0.52) 55%, rgba(43,38,34,0.72) 100%);
+  }
 }
 /* The bottom padding reserves room for .hero-scroll, which is absolutely
    positioned at the foot of the hero. At 90px the CTA buttons collided with
