@@ -310,19 +310,19 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
    .is-ready on the container once the page has loaded, and that is what lets
    slides 2–4 start fetching. Without the gate all four would be requested
    during the first paint and the hero would arrive four times slower. */
-.hero-slide-1 { background-image: url('assets/hero-headbath-lg.jpg'); }
-.is-ready .hero-slide-2 { background-image: url('assets/hero-treatment-lg.jpg'); }
-.is-ready .hero-slide-3 { background-image: url('assets/hero-practitioner-lg.jpg'); }
-.is-ready .hero-slide-4 { background-image: url('assets/hero-massage-lg.jpg'); }
+.hero-slide-1 { background-image: url('assets/hero-practitioner-lg.jpg'); }
+.is-ready .hero-slide-2 { background-image: url('assets/hero-massage-lg.jpg'); }
+.is-ready .hero-slide-3 { background-image: url('assets/hero-headbath-lg.jpg'); }
+.is-ready .hero-slide-4 { background-image: url('assets/hero-treatment-lg.jpg'); }
 
 /* On a phone the hero is far taller than it is wide, so a centred `cover` of a
    16:9 file keeps only its middle third — which on these photos is wall and
    water, not the head being worked on. Swap in a 3:4 crop of the same frame. */
 @media (max-width: 639px) {
-  .hero-slide-1 { background-image: url('assets/hero-headbath-sm.jpg'); }
-  .is-ready .hero-slide-2 { background-image: url('assets/hero-treatment-sm.jpg'); }
-  .is-ready .hero-slide-3 { background-image: url('assets/hero-practitioner-sm.jpg'); }
-  .is-ready .hero-slide-4 { background-image: url('assets/hero-massage-sm.jpg'); }
+  .hero-slide-1 { background-image: url('assets/hero-practitioner-sm.jpg'); }
+  .is-ready .hero-slide-2 { background-image: url('assets/hero-massage-sm.jpg'); }
+  .is-ready .hero-slide-3 { background-image: url('assets/hero-headbath-sm.jpg'); }
+  .is-ready .hero-slide-4 { background-image: url('assets/hero-treatment-sm.jpg'); }
 }
 
 @keyframes heroZoom {
@@ -347,11 +347,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .hero-scrim {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 74% 62% at 50% 42%,
-      rgba(24,20,17,0.66) 0%, rgba(24,20,17,0.36) 62%, rgba(24,20,17,0) 100%),
+    radial-gradient(ellipse 74% 62% at 50% 44%,
+      rgba(24,20,17,0.64) 0%, rgba(24,20,17,0.34) 62%, rgba(24,20,17,0) 100%),
     linear-gradient(180deg,
-      rgba(43,38,34,0.80) 0%, rgba(43,38,34,0.60) 20%,
-      rgba(43,38,34,0.30) 52%, rgba(43,38,34,0.60) 100%);
+      rgba(43,38,34,0.84) 0%, rgba(43,38,34,0.64) 22%,
+      rgba(43,38,34,0.20) 56%, rgba(43,38,34,0.52) 100%);
 }
 /* A phone gets a heavier hand, and not for want of trying to avoid it: the hero
    is far taller than it is wide there, so the copy covers most of the frame
@@ -361,10 +361,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .hero-scrim {
     background:
       radial-gradient(ellipse 100% 64% at 50% 44%,
-        rgba(24,20,17,0.66) 0%, rgba(24,20,17,0.42) 62%, rgba(24,20,17,0) 100%),
+        rgba(24,20,17,0.60) 0%, rgba(24,20,17,0.38) 62%, rgba(24,20,17,0) 100%),
       linear-gradient(180deg,
-        rgba(43,38,34,0.82) 0%, rgba(43,38,34,0.68) 20%,
-        rgba(43,38,34,0.52) 55%, rgba(43,38,34,0.72) 100%);
+        rgba(43,38,34,0.84) 0%, rgba(43,38,34,0.70) 20%,
+        rgba(43,38,34,0.44) 55%, rgba(43,38,34,0.66) 100%);
   }
 }
 /* The bottom padding reserves room for .hero-scroll, which is absolutely
@@ -407,9 +407,13 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
+/* Opaque, where this used to be 85% white. Softening the sub-heading was cheap
+   when it sat on a near-black photo; over lit ones the missing 15% is real
+   contrast given away, and buying it back here costs the photograph nothing —
+   the alternative was another pass of darkening over the whole frame. */
 .hero-sub {
   font-size: clamp(16px, 2vw, 19px);
-  color: rgba(255, 253, 249, 0.85);
+  color: var(--white);
   max-width: 620px;
   margin: 0 auto 10px;
 }

@@ -23,8 +23,8 @@
        starts downloading alongside the stylesheet instead of after it. Only
        one of the two ever matches. (The WordPress build drops everything in
        this <head> — inc/seo.php emits the same pair for the front page.) -->
-  <link rel="preload" as="image" href="assets/hero-headbath-lg.jpg" media="(min-width: 640px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/hero-headbath-sm.jpg" media="(max-width: 639px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-practitioner-lg.jpg" media="(min-width: 640px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-practitioner-sm.jpg" media="(max-width: 639px)" fetchpriority="high">
 
   <!-- ============ Structured data: LocalBusiness / HairSalon ============
 
@@ -225,7 +225,11 @@
      hands — the only parts that say "head spa" at a glance.
      Slide 1 is the only one referenced up front. script.js adds .is-ready
      after load, which is what brings slides 2–4 into play, so the extra
-     photos never compete with the first paint. -->
+     photos never compete with the first paint.
+     Running order lives in style.css, not here — hero-slide-N is a position,
+     the filename is the photograph. Changing the order means editing those
+     four rules (twice, once per breakpoint) and the preload above, which
+     names whichever photo ends up first. -->
 <section class="hero">
   <div class="hero-bg" id="heroSlideshow" aria-hidden="true">
     <div class="hero-slide hero-slide-1 is-active"></div>
