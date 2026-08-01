@@ -18,6 +18,14 @@
   <meta property="og:locale" content="en_AU">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- The hero's first slide is the largest thing on the page and lives in a
+       CSS background, which the preload scanner cannot see. Announce it so it
+       starts downloading alongside the stylesheet instead of after it. Only
+       one of the two ever matches. (The WordPress build drops everything in
+       this <head> — inc/seo.php emits the same pair for the front page.) -->
+  <link rel="preload" as="image" href="assets/hero-headbath-lg.jpg" media="(min-width: 640px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-headbath-sm.jpg" media="(max-width: 639px)" fetchpriority="high">
+
   <!-- ============ Structured data: LocalBusiness / HairSalon ============
 
        NOTE ON THE 5.0 / 140+ RATING — deliberately NOT marked up as
@@ -211,20 +219,27 @@
 
 <!-- ================================================================
      HERO — full-screen, single H1, primary conversion point.
-     The slideshow stays in place (script.js cross-fades every .hero-slide),
-     but only one slide is live for now. Add another .hero-slide div to
-     start the rotation again — nothing else needs changing. -->
+     Four slides, cross-faded by script.js. Each photo has a landscape and a
+     portrait crop; style.css picks between them, because a centred `cover` of
+     the landscape file on a phone crops away the head, the water and the
+     hands — the only parts that say "head spa" at a glance.
+     Slide 1 is the only one referenced up front. script.js adds .is-ready
+     after load, which is what brings slides 2–4 into play, so the extra
+     photos never compete with the first paint. -->
 <section class="hero">
   <div class="hero-bg" id="heroSlideshow" aria-hidden="true">
-    <div class="hero-slide is-active" style="background-image:url('assets/hero-main.jpg');"></div>
+    <div class="hero-slide hero-slide-1 is-active"></div>
+    <div class="hero-slide hero-slide-2"></div>
+    <div class="hero-slide hero-slide-3"></div>
+    <div class="hero-slide hero-slide-4"></div>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
     <p class="hero-kicker">Southport &middot; Gold Coast &middot; QLD</p>
     <p class="script-word" aria-hidden="true">Dreamin&rsquo;</p>
-    <h1><span class="hero-nowrap">Sustaining Beautiful Hair</span><br>for the Next <span class="hero-num">10</span>&nbsp;Years</h1>
-    <p class="hero-sub">More than a relaxation&mdash;a trichology-informed approach to total scalp health.<br class="hide-sm">
-      Understand your unique scalp environment and achieve the confidence of truly healthy hair.</p>
+    <h1><span class="hero-nowrap">Japanese Head Spa</span><br>Beautiful Hair<br>for the Next <span class="hero-num">10</span>&nbsp;Years</h1>
+    <p class="hero-sub">More than relaxation &mdash; a trichology-informed approach to scalp health.<br class="hide-sm">
+      We read your scalp first, then treat what we actually find.</p>
     <div class="hero-cta">
       <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book Now</a>
       <a href="menu.html" class="btn btn-ghost btn-lg">View Menu</a>

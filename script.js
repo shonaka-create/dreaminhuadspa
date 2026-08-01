@@ -121,9 +121,22 @@
     updateSticky();
   }
 
-  /* ---------- 5. Hero slideshow: cross-fade every 6 seconds ---------- */
+  /* ---------- 5. Hero slideshow: cross-fade every 6 seconds ----------
+     Slides 2+ have no background-image until .is-ready lands on the container
+     (see style.css), which keeps them out of the race for the first paint —
+     the hero is the largest image on the page and the one Google times.
+     Anyone who has asked their system to reduce motion keeps slide 1 and no
+     rotation at all; a full-bleed photo swapping under the headline is exactly
+     the kind of movement that setting is for. */
+  var heroBg = document.getElementById("heroSlideshow");
   var slides = document.querySelectorAll(".hero-slide");
-  if (slides.length > 1) {
+
+  function startSlideshow() {
+    if (heroBg) heroBg.classList.add("is-ready");
+
+    var stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (slides.length < 2 || stillness.matches) return;
+
     var current = 0;
     setInterval(function () {
       slides[current].classList.remove("is-active");
@@ -131,6 +144,9 @@
       slides[current].classList.add("is-active");
     }, 6000);
   }
+
+  if (document.readyState === "complete") startSlideshow();
+  else window.addEventListener("load", startSlideshow);
 
   /* ---------- 6. Journal: category filter ----------
      Cards carry data-cat; buttons carry data-filter. "all" shows everything,

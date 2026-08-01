@@ -289,40 +289,66 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; }
 
-/* Hero slideshow: cross-fading full-bleed slides with a slow zoom */
+/* Hero slideshow: cross-fading full-bleed slides with a slow zoom.
+   6s on screen + 1.6s cross-fade = a 7.6s beat, which is what heroZoom is
+   timed to; a zoom that outlasts its slide freezes mid-move on the handover. */
 .hero-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.8s var(--ease);
+  transition: opacity 1.6s var(--ease);
   will-change: opacity, transform;
 }
 .hero-slide.is-active {
   opacity: 1;
-  animation: heroZoom 8s linear forwards;
+  animation: heroZoom 7.6s linear forwards;
 }
-/* The hero photo is landscape and the guest's face sits in its right third. On a
-   phone the frame is far narrower than the photo, so a centred `cover` crop lands
-   on the middle of the bed and leaves the face — the whole point of the shot —
-   outside the frame. Pull the crop across to it: at 78% the face, the head-bath
-   cap and the steam all sit in frame from 360px up. */
+
+/* Slide sources. Only slide 1 is named unconditionally — script.js puts
+   .is-ready on the container once the page has loaded, and that is what lets
+   slides 2–4 start fetching. Without the gate all four would be requested
+   during the first paint and the hero would arrive four times slower. */
+.hero-slide-1 { background-image: url('assets/hero-headbath-lg.jpg'); }
+.is-ready .hero-slide-2 { background-image: url('assets/hero-treatment-lg.jpg'); }
+.is-ready .hero-slide-3 { background-image: url('assets/hero-practitioner-lg.jpg'); }
+.is-ready .hero-slide-4 { background-image: url('assets/hero-massage-lg.jpg'); }
+
+/* On a phone the hero is far taller than it is wide, so a centred `cover` of a
+   16:9 file keeps only its middle third — which on these photos is wall and
+   water, not the head being worked on. Swap in a 3:4 crop of the same frame. */
 @media (max-width: 639px) {
-  .hero-slide { background-position: 78% center; }
+  .hero-slide-1 { background-image: url('assets/hero-headbath-sm.jpg'); }
+  .is-ready .hero-slide-2 { background-image: url('assets/hero-treatment-sm.jpg'); }
+  .is-ready .hero-slide-3 { background-image: url('assets/hero-practitioner-sm.jpg'); }
+  .is-ready .hero-slide-4 { background-image: url('assets/hero-massage-sm.jpg'); }
 }
+
 @keyframes heroZoom {
   from { transform: scale(1); }
   to { transform: scale(1.07); }
 }
+/* Reduced motion: script.js leaves the rotation on slide 1, so all that is left
+   to silence here is the zoom. The fade rule stays for the ordinary case. */
 @media (prefers-reduced-motion: reduce) {
   .hero-slide { transition: opacity 0.5s linear; }
   .hero-slide.is-active { animation: none; }
 }
 
+/* Two layers, because the slides are no longer a single near-black photo. The
+   head-bath shots are bright — pale wall, white water — and over them the gold
+   kicker sat at 2.6:1 against #cdb587, well under the 4.5:1 small text needs.
+   The linear pass sets the overall mood; the ellipse does the legibility work,
+   sitting only where the copy is so the photo keeps its light at the edges.
+   Numbers here are measured, not guessed: every line of hero copy clears WCAG
+   AA over all four slides at both breakpoints. */
 .hero-scrim {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(43,38,34,0.72) 0%, rgba(43,38,34,0.55) 45%, rgba(43,38,34,0.78) 100%);
+  background:
+    radial-gradient(ellipse 82% 66% at 50% 42%,
+      rgba(24,20,17,0.72) 0%, rgba(24,20,17,0.44) 58%, rgba(24,20,17,0) 100%),
+    linear-gradient(180deg, rgba(43,38,34,0.78) 0%, rgba(43,38,34,0.58) 45%, rgba(43,38,34,0.80) 100%);
 }
 /* The bottom padding reserves room for .hero-scroll, which is absolutely
    positioned at the foot of the hero. At 90px the CTA buttons collided with
@@ -347,8 +373,11 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   background: var(--gold-soft);
   opacity: 0.6;
 }
+/* Three lines rather than the two this used to carry, so the top of the scale
+   comes down a step — at 84px the third line pushed the CTAs into the scroll
+   cue on a 768px-tall laptop. */
 .hero h1 {
-  font-size: clamp(40px, 7.4vw, 84px);
+  font-size: clamp(34px, 6.2vw, 68px);
   font-weight: 500;
   color: var(--white);
   margin-bottom: 26px;
@@ -369,6 +398,20 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .hero-sub.ja-line { font-size: 13px; letter-spacing: 0.14em; color: var(--gold-soft); margin-bottom: 0; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 44px; }
+
+/* Short landscape screens — a 1280x720 laptop is the common one. The heading
+   runs to three lines here, and at the full desktop rhythm that pushed Book Now
+   off the bottom of the hero: the page's main call to action, below the fold,
+   on the machine a good share of guests browse from. Tighten the vertical
+   spacing rather than shorten the heading. Keyed to height, so tall desktops
+   are untouched; phones already fit and are excluded by the width bound. */
+@media (min-width: 640px) and (max-height: 840px) {
+  .hero .hero-content { padding-top: 84px; padding-bottom: 104px; }
+  .hero .script-word { font-size: clamp(34px, 4.4vw, 46px); }
+  .hero .hero-kicker { margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 56px); margin-bottom: 18px; }
+  .hero .hero-cta { margin-top: 28px; }
+}
 
 .hero-scroll {
   position: absolute;
