@@ -290,20 +290,23 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .hero-bg { position: absolute; inset: 0; overflow: hidden; }
 
 /* Hero slideshow: cross-fading full-bleed slides with a slow zoom.
-   6s on screen + 1.6s cross-fade = a 7.6s beat, which is what heroZoom is
-   timed to; a zoom that outlasts its slide freezes mid-move on the handover. */
+   3s on screen + 0.8s cross-fade = a 3.8s beat, which is what heroZoom is
+   timed to; a zoom that outlasts its slide freezes mid-move on the handover.
+   The fade is half what it was because the interval is: at the old 1.6s a slide
+   would spend more than half its life dissolving, which reads as one picture
+   melting rather than four being shown. */
 .hero-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.6s var(--ease);
+  transition: opacity 0.8s var(--ease);
   will-change: opacity, transform;
 }
 .hero-slide.is-active {
   opacity: 1;
-  animation: heroZoom 7.6s linear forwards;
+  animation: heroZoom 3.8s linear forwards;
 }
 
 /* Slide sources. Only slide 1 is named unconditionally — script.js puts

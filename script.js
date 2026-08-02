@@ -121,7 +121,10 @@
     updateSticky();
   }
 
-  /* ---------- 5. Hero slideshow: cross-fade every 6 seconds ----------
+  /* ---------- 5. Hero slideshow: cross-fade every 3 seconds ----------
+     Keep this in step with .hero-slide in style.css: the interval here plus the
+     cross-fade there is the beat heroZoom is timed to, and a zoom that outlasts
+     its slide freezes mid-move on the handover.
      Slides 2+ have no background-image until .is-ready lands on the container
      (see style.css), which keeps them out of the race for the first paint —
      the hero is the largest image on the page and the one Google times.
@@ -142,7 +145,7 @@
       slides[current].classList.remove("is-active");
       current = (current + 1) % slides.length;
       slides[current].classList.add("is-active");
-    }, 6000);
+    }, 3000);
   }
 
   if (document.readyState === "complete") startSlideshow();
