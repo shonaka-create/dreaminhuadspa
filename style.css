@@ -316,7 +316,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .hero-slide-1 { background-image: url('assets/hero-practitioner-lg.jpg'); }
 .is-ready .hero-slide-2 { background-image: url('assets/hero-massage-lg.jpg'); }
 .is-ready .hero-slide-3 { background-image: url('assets/hero-headbath-lg.jpg'); }
-.is-ready .hero-slide-4 { background-image: url('assets/hero-treatment-lg.jpg'); }
+.is-ready .hero-slide-4 { background-image: url('assets/hero-headbath-wide-lg.jpg'); }
 
 /* On a phone the hero is far taller than it is wide, so a centred `cover` of a
    16:9 file keeps only its middle third — which on these photos is wall and
@@ -325,7 +325,7 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .hero-slide-1 { background-image: url('assets/hero-practitioner-sm.jpg'); }
   .is-ready .hero-slide-2 { background-image: url('assets/hero-massage-sm.jpg'); }
   .is-ready .hero-slide-3 { background-image: url('assets/hero-headbath-sm.jpg'); }
-  .is-ready .hero-slide-4 { background-image: url('assets/hero-treatment-sm.jpg'); }
+  .is-ready .hero-slide-4 { background-image: url('assets/hero-headbath-wide-sm.jpg'); }
 }
 
 @keyframes heroZoom {
