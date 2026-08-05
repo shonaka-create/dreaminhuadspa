@@ -687,6 +687,75 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .duration-note { text-transform: none; letter-spacing: 0.04em; opacity: 0.75; }
 .price-split { font-size: 25px; display: inline-block; margin-right: 18px; }
+
+/* ---------- Menu card: length-priced service ----------
+   One service, three prices (Short / Medium / Long). A stacked list would read
+   as three separate offers, so the three sit side by side in one bordered
+   block — the same figure, three lengths — and stay side by side on a phone,
+   which is why the price uses clamp() rather than a breakpoint.
+   Used by the head spa card on the front page. */
+.price-tiers {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(205, 181, 135, 0.32);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.price-tiers li { padding: 16px 6px 15px; text-align: center; }
+.price-tiers li + li { border-left: 1px solid rgba(205, 181, 135, 0.22); }
+.tier-name {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 240, 233, 0.6);
+  margin-bottom: 9px;
+}
+.tier-price {
+  display: block;
+  font-family: var(--price);
+  font-size: clamp(26px, 3.2vw, 34px);
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1;
+  color: var(--gold-soft);
+}
+.tier-price sup { font-size: 0.5em; font-weight: 600; vertical-align: 0.62em; margin-right: 1px; }
+
+/* The optional extra. Dashed, not solid: it has to read as an add-on to the
+   block above rather than a fourth price. */
+.price-option {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  font-size: 14.5px;
+  color: rgba(244, 240, 233, 0.82);
+  border: 1px dashed rgba(205, 181, 135, 0.45);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin-bottom: 26px;
+}
+.price-option-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.price-option b {
+  font-family: var(--price);
+  font-size: 21px;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--white);
+  margin-left: 2px;
+}
+.price-option b sup { font-size: 0.55em; vertical-align: 0.55em; }
+.price-option-note { font-size: 13px; color: rgba(244, 240, 233, 0.5); }
+
 .menu-includes {
   list-style: none;
   margin-bottom: 32px;
@@ -717,7 +786,22 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 }
 .menu-includes-head + li { padding-top: 4px; }
 .menu-includes li.menu-includes-head:not(:first-child) { padding-top: 20px; }
-.menu-includes-head::before { content: none; }
+/* Qualified with .menu-includes li, or `.menu-includes li::before` outranks it
+   and the dash this rule exists to remove stays on the sub-label anyway. */
+.menu-includes li.menu-includes-head::before { content: none; }
+/* A sentence explaining the step above it, not an item in its own right — so
+   it drops the dash but keeps the indent, staying flush with its heading. */
+.menu-includes li.menu-includes-desc::before { content: none; }
+/* Closing remark under an includes list — a note about the service, not an
+   item in it, so it sits outside the dashes and off the gold rule. */
+.menu-includes-note {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(244, 240, 233, 0.62);
+  margin: 18px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid rgba(205, 181, 135, 0.35);
+}
 
 /* ---------- Menu card: "View detail" ----------
    What's included is the detail, not the offer — folding it away keeps every
@@ -1820,6 +1904,9 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .why-grid.is-five { display: flex; flex-wrap: wrap; justify-content: center; }
   .why-grid.is-five .why-card { flex: 0 0 calc((100% - 32px) / 2); }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  /* The head spa carries three prices and a five-step list: give it the whole
+     row here, two of three columns on desktop. */
+  .menu-card-wide { grid-column: span 2; }
   .ig-grid > * { flex-basis: min(46%, 320px); }
 
   /* Image beside copy; the two blocks mirror each other. */

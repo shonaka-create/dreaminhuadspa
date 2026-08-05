@@ -6,7 +6,7 @@
 
   <!-- ============ SEO ============ -->
   <title>Japanese Head Spa in Gold Coast (Southport) | Dreamin' Head Spa &amp; Sculpture</title>
-  <meta name="description" content="Japanese wet head spa in Southport, Gold Coast — rated 5.0 on Google by 140+ guests. Scalp diagnosis, 90–135 min treatments and precision cuts in a private, one-guest-at-a-time space. From $220, blow-dry included. Book online.">
+  <meta name="description" content="Japanese wet head spa in Southport, Gold Coast — rated 5.0 on Google by 140+ guests. Scalp diagnosis, 90–120 min treatments and optional precision cuts in a private, one-guest-at-a-time space. From $170, blow-dry included. Book online.">
   <link rel="canonical" href="https://dreaminheadspa.com.au/">
 
   <!-- ============ OGP ============ -->
@@ -44,7 +44,7 @@
     "@type": "HairSalon",
     "@id": "https://dreaminheadspa.com.au/#business",
     "name": "Dreamin' Head Spa & Sculpture",
-    "description": "Japanese wet head spa, trichology-informed scalp diagnosis and precision hair sculpture in a private, one-guest-at-a-time space in Southport, Gold Coast. Every head spa runs 90–135 minutes and includes a full blow-dry.",
+    "description": "Japanese wet head spa, trichology-informed scalp diagnosis and precision hair sculpture in a private, one-guest-at-a-time space in Southport, Gold Coast. Every head spa runs 90–120 minutes and includes a full blow-dry; a hair cut can be added for $40.",
     "image": "https://dreaminheadspa.com.au/assets/og-image.jpg",
     "url": "https://dreaminheadspa.com.au/",
     "telephone": "+61452345060",
@@ -93,31 +93,54 @@
     "makesOffer": [
       {
         "@type": "Offer",
-        "name": "Head Spa & Cut",
-        "description": "Signature service. Scalp diagnosis, the full Japanese wet head spa ritual, a precision cut and a full blow-dry finish.",
-        "price": "260.00",
+        "name": "Maintenance Head Spa — Short hair",
+        "description": "Signature service. Scalp consultation and microscope analysis, double shampooing, the head bath experience, scalp and hair treatment, and a protected blow-dry finish. A hair cut can be added for $40.",
+        "price": "170.00",
         "priceCurrency": "AUD",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
           "@type": "Service",
-          "name": "Head Spa & Cut",
-          "serviceType": "Japanese wet head spa with precision cut",
+          "name": "Maintenance Head Spa",
+          "serviceType": "Japanese wet head spa",
           "provider": { "@id": "https://dreaminheadspa.com.au/#business" }
         }
       },
       {
         "@type": "Offer",
-        "name": "Head Spa & Dry",
-        "description": "The full Japanese wet head spa ritual with scalp diagnosis and a full blow-dry finish, without a cut.",
-        "price": "220.00",
+        "name": "Maintenance Head Spa — Medium hair",
+        "description": "Signature service. Scalp consultation and microscope analysis, double shampooing, the head bath experience, scalp and hair treatment, and a protected blow-dry finish. A hair cut can be added for $40.",
+        "price": "190.00",
         "priceCurrency": "AUD",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
           "@type": "Service",
-          "name": "Head Spa & Dry",
+          "name": "Maintenance Head Spa",
           "serviceType": "Japanese wet head spa",
           "provider": { "@id": "https://dreaminheadspa.com.au/#business" }
         }
+      },
+      {
+        "@type": "Offer",
+        "name": "Maintenance Head Spa — Long hair",
+        "description": "Signature service. Scalp consultation and microscope analysis, double shampooing, the head bath experience, scalp and hair treatment, and a protected blow-dry finish. A hair cut can be added for $40.",
+        "price": "210.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Maintenance Head Spa",
+          "serviceType": "Japanese wet head spa",
+          "provider": { "@id": "https://dreaminheadspa.com.au/#business" }
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Hair Cut (head spa add-on)",
+        "description": "A precision cut added to any head spa. Not included in the head spa price.",
+        "price": "40.00",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Hair Cut", "serviceType": "Precision cut added to a head spa" }
       },
       {
         "@type": "Offer",
@@ -358,47 +381,52 @@
   <div class="container">
     <p class="section-kicker fade-in">Menu</p>
     <h2 class="section-title fade-in">Treatments &amp; <em>pricing</em></h2>
-    <p class="section-lead fade-in">Transparent pricing. Every head spa includes consultation, treatment and a full blow-dry finish.</p>
+    <p class="section-lead fade-in">Transparent pricing. Every head spa includes consultation, treatment and a full blow-dry finish — priced by hair length, with a cut as an optional extra.</p>
 
     <div class="menu-grid">
-      <!-- Signature card is visually featured -->
-      <article class="menu-card menu-featured fade-in">
+      <!-- HEAD SPA — one card, three lengths.
+           This used to be two cards ("& Cut" $260 / "& Dry" $220) at one price
+           each. The head spa is now a single service priced by hair length,
+           with the cut as a $40 option — so the card carries a three-tier price
+           block instead of a single figure, and takes the full width of the row
+           (.menu-card-wide) because it is the service the page is selling.
+           What the ritual actually contains is folded away under "Including",
+           so the card still reads as name / lengths / price at a glance. -->
+      <article class="menu-card menu-featured menu-card-wide fade-in">
         <p class="menu-tag">Signature</p>
-        <h3>Head Spa &amp; Cut</h3>
-        <p class="menu-duration">120–135 min</p>
-        <p class="menu-price"><sup>$</sup>260</p>
-        <details class="menu-detail">
-          <summary><span>View detail</span><span class="faq-icon" aria-hidden="true"></span></summary>
-          <ul class="menu-includes">
-            <li>Hair &amp; Scalp Consultation</li>
-            <li>Deep cleansing</li>
-            <li>Shampoo for the day</li>
-            <li>Carbonated shampoo</li>
-            <li>Yume Head Bath experience</li>
-            <li>Hair Treatment</li>
-            <li>Hair cut / Finishing (dry and light styling)</li>
-          </ul>
-        </details>
-        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-block">Book This</a>
-      </article>
+        <h3>Maintenance Head Spa</h3>
+        <p class="menu-duration">90–120 min <span class="duration-note">(depending on hair length)</span></p>
 
-      <article class="menu-card fade-in">
-        <h3>Head Spa &amp; Dry</h3>
-        <p class="menu-duration">90–120 min</p>
-        <p class="menu-price"><sup>$</sup>220</p>
+        <ul class="price-tiers">
+          <li><span class="tier-name">Short</span><span class="tier-price"><sup>$</sup>170</span></li>
+          <li><span class="tier-name">Medium</span><span class="tier-price"><sup>$</sup>190</span></li>
+          <li><span class="tier-name">Long</span><span class="tier-price"><sup>$</sup>210</span></li>
+        </ul>
+
+        <p class="price-option">
+          <span class="price-option-label">Optional</span>
+          <span>Add a hair cut <b>+<sup>$</sup>40</b></span>
+          <span class="price-option-note">A cut is not included in the prices above.</span>
+        </p>
+
         <details class="menu-detail">
-          <summary><span>View detail</span><span class="faq-icon" aria-hidden="true"></span></summary>
+          <summary><span>Including:</span><span class="faq-icon" aria-hidden="true"></span></summary>
           <ul class="menu-includes">
-            <li>Hair &amp; Scalp Consultation</li>
-            <li>Deep cleansing</li>
-            <li>Shampoo for the day</li>
-            <li>Carbonated shampoo</li>
-            <li>Yume Head Bath experience</li>
-            <li>Hair Treatment</li>
-            <li>Finishing (dry and light styling)</li>
+            <li class="menu-includes-head">01 — Scalp Consultation &amp; Analysis</li>
+            <li class="menu-includes-desc">We begin with a personal consultation and examine your scalp through a professional microscope camera, so the cleansing and care products are chosen for the condition actually in front of us.</li>
+            <li class="menu-includes-head">02 — Double Shampooing</li>
+            <li class="menu-includes-desc">Two shampoos, every time. The first lifts away everyday dirt, oil and surface impurities; the second is customised to your scalp and hair on the day — how deeply we need to cleanse, and how much scalp care is required.</li>
+            <li class="menu-includes-head">03 — Head Bath Experience</li>
+            <li class="menu-includes-desc">A relaxing head bath follows the shampooing, gently cleansing and refreshing the scalp — and this is the part most guests fall asleep in.</li>
+            <li class="menu-includes-head">04 — Scalp &amp; Hair Treatment</li>
+            <li class="menu-includes-desc">A treatment selected for your scalp, then a customised treatment for your hair to support its condition, softness and manageability.</li>
+            <li class="menu-includes-head">05 — Professional Finishing</li>
+            <li class="menu-includes-desc">Your hair is not simply dried. Having just spent the session treating it, we protect it as it dries with heat protection and conditioning serums, then dry and lightly style it to leave it healthy, smooth and beautiful.</li>
           </ul>
+          <p class="menu-includes-note">Every visit is different. Your scalp and hair condition changes from day to day, so the head spa is adjusted each time — the care your scalp and hair need at that particular time.</p>
         </details>
-        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-outline btn-block">Book This</a>
+
+        <a href="https://squareup.com/appointments/book/8j6xkwu8kofa9e/LRGQJ9MRKHWR8/services" target="_blank" rel="noopener" class="btn btn-gold btn-block">Book This</a>
       </article>
 
       <article class="menu-card fade-in">
@@ -618,8 +646,8 @@
           <span class="faq-icon" aria-hidden="true"></span>
         </summary>
         <div class="faq-answer">
-          <p>Yes — Head Spa &amp; Cut is our signature service and the one most guests book. It combines the full head spa ritual with a precision cut and blow-dry finish in a single 120–135 minute visit.</p>
-          <p>Cuts are also available on their own, and a Deep Treatment can be added to any service.</p>
+          <p>Yes. A cut is an optional extra on any head spa — <strong>+$40</strong> on top of the head spa price — so one visit can cover both. The head spa prices themselves do not include a cut, and plenty of guests come for the head spa alone.</p>
+          <p>Mention it when you book so we can allow the time. Cuts are also available on their own, and a Deep Treatment can be added to any service.</p>
         </div>
       </details>
     </div>
