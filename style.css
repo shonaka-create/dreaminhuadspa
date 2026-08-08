@@ -756,6 +756,64 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
 .price-option b sup { font-size: 0.55em; vertical-align: 0.55em; }
 .price-option-note { font-size: 13px; color: rgba(244, 240, 233, 0.5); }
 
+/* ---------- Menu card: full-width hero card ----------
+   The two length-priced spa services carry the menu, so each takes the whole
+   grid row while the three secondary services share the row underneath. A card
+   that wide would leave a lake of empty space beside a single price block, so
+   from tablet up it splits in two: what the service is on the left, what it
+   costs and how to book it on the right. Below that width the two halves simply
+   stack, which is the order they are written in. */
+.menu-card-main,
+.menu-card-side { display: flex; flex-direction: column; }
+.menu-sub {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(244, 240, 233, 0.72);
+  margin-bottom: 10px;
+}
+/* Two or three lines saying what the service is. It also gives the left column
+   enough body to sit against the price block opposite it. */
+.menu-lead {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: rgba(244, 240, 233, 0.72);
+  max-width: 52ch;
+  margin-bottom: 4px;
+}
+/* A hero card stands alone in its row, so it has nothing to line its duration
+   up with — the two-line reservation would only open a gap above the lead. */
+.menu-card-wide .menu-duration { min-height: 0; margin-bottom: 22px; }
+@media (min-width: 780px) {
+  .menu-card-wide {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 0.72fr);
+    column-gap: 54px;
+    align-items: start;
+  }
+  /* The right column starts level with the title, not with the tag above it. */
+  .menu-card-wide .menu-card-side { padding-top: 4px; }
+}
+
+/* ---------- Menu card: compact variant ----------
+   The three secondary services sit under the hero cards and are built a size
+   down, so the eye reaches the spa prices first. No tag row to reserve either,
+   which is where most of the lost top padding goes. */
+.menu-card-sm { padding: 42px 26px 34px; }
+/* Two lines reserved: "Silk Kaizen Treatment" wraps in a narrow column, and
+   without the reservation it would drop that card's price and button out of
+   line with the two beside it. */
+.menu-card-sm h3 { font-size: 21px; min-height: 56px; }
+.menu-card-sm .menu-duration { font-size: 11.5px; margin-bottom: 14px; min-height: 40px; }
+.menu-card-sm .menu-price { font-size: 34px; min-height: 76px; margin-bottom: 18px; }
+.menu-card-sm .menu-price-text { font-size: 25px; }
+.menu-card-sm .price-split { font-size: 21px; margin-right: 14px; }
+.menu-card-sm .menu-detail { margin-bottom: 26px; }
+.menu-card-sm .menu-detail summary { font-size: 11px; letter-spacing: 0.16em; }
+.menu-card-sm .menu-includes li { font-size: 14.5px; padding: 8px 0 8px 20px; }
+.menu-card-sm .btn-block { padding: 14px 24px; font-size: 12px; }
+
 .menu-includes {
   list-style: none;
   margin-bottom: 32px;
@@ -1904,9 +1962,10 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .why-grid.is-five { display: flex; flex-wrap: wrap; justify-content: center; }
   .why-grid.is-five .why-card { flex: 0 0 calc((100% - 32px) / 2); }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
-  /* The head spa carries three prices and a five-step list: give it the whole
-     row here, two of three columns on desktop. */
-  .menu-card-wide { grid-column: span 2; }
+  /* The two length-priced spa cards take the whole row at every width — one
+     column here, three on desktop — so the secondary services never sit beside
+     them competing for the same glance. */
+  .menu-card-wide { grid-column: 1 / -1; }
   .ig-grid > * { flex-basis: min(46%, 320px); }
 
   /* Image beside copy; the two blocks mirror each other. */
@@ -1920,6 +1979,12 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   .method-panel { max-width: 560px; margin-left: auto; padding: 46px 44px; }
 
   .post-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* The three compact menu cards go three-across as soon as the hero cards split
+   into two columns, so the set never breaks 2 + 1 and strands one card alone. */
+@media (min-width: 780px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Footer opens out into its three columns once there is room for them. */
