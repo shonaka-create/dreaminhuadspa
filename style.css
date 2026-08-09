@@ -641,6 +641,9 @@ body.lang-ja .lang-toggle .lang-ja { color: var(--gold-soft); font-weight: 600; 
   margin-bottom: 14px;
 }
 .menu-card .menu-tag { position: absolute; top: 36px; left: 34px; margin: 0; }
+/* The tag sits outside the flow, so a card without one keeps the reserved row
+   as an empty band. Drop back to the tagless top padding the compact cards use. */
+.menu-card-notag { padding-top: 42px; }
 .menu-card h3 { font-size: 26px; color: var(--white); margin-bottom: 6px; min-height: 33px; }
 .menu-duration {
   font-size: 12px;
