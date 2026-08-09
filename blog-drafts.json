@@ -1,22 +1,4 @@
 {
- "blog-understanding-oily-scalp": {
-  "cat": "scalp",
-  "catName": "Scalp & Hair Health",
-  "title_html": "Understanding an oily scalp",
-  "excerpt": "Roots oily within a day? Washing more often can make it worse. What actually causes it, and how to bring the scalp back into balance.",
-  "author": "Takashi Iwata",
-  "img": "blog/blog-15.jpg",
-  "alt": "A guest's scalp washed at the basin, hands working lather through the hair"
- },
- "blog-understanding-dandruff": {
-  "cat": "scalp",
-  "catName": "Scalp & Hair Health",
-  "title_html": "Understanding dandruff",
-  "excerpt": "Dandruff and a dry scalp are not the same thing. What the flaking actually is, what causes it, and how to care for it properly.",
-  "author": "Takashi Iwata",
-  "img": "blog/blog-11.jpg",
-  "alt": "Hair follicles seen close up in the scalp, with moisture around the roots"
- },
  "blog-scalp-microbiome": {
   "cat": "scalp",
   "catName": "Scalp & Hair Health",
@@ -24,7 +6,8 @@
   "excerpt": "Millions of microorganisms live on your scalp, and most are helping you. Why the healthiest scalp is balanced, not the most stripped.",
   "author": "Takashi Iwata",
   "img": "blog/blog-12.jpg",
-  "alt": "A droplet of moisture held on a single strand of hair"
+  "alt": "A droplet of moisture held on a single strand of hair",
+  "publish_at": "2026-08-19T20:00:00+10:00"
  },
  "blog-which-hair-care-products": {
   "cat": "homecare",
@@ -33,7 +16,8 @@
   "excerpt": "There is no single best shampoo — only the one that suits your scalp. How to choose, and why switching constantly works against you.",
   "author": "Takashi Iwata",
   "img": "blog/blog-05.jpg",
-  "alt": "Scalp and hair care bottles arranged on pale yellow blocks"
+  "alt": "Scalp and hair care bottles arranged on pale yellow blocks",
+  "publish_at": "2026-08-15T20:00:00+10:00"
  },
  "blog-what-is-hair-serum": {
   "cat": "homecare",
@@ -42,7 +26,8 @@
   "excerpt": "A serum protects the surface, an oil nourishes from within. What a serum can and cannot do, and whether your hair needs one.",
   "author": "Takashi Iwata",
   "img": "blog/blog-12.jpg",
-  "alt": "A droplet of moisture held on a single strand of hair"
+  "alt": "A droplet of moisture held on a single strand of hair",
+  "publish_at": "2026-09-16T20:00:00+10:00"
  },
  "blog-what-is-head-bath": {
   "cat": "treatments",
@@ -51,7 +36,8 @@
   "excerpt": "The Japanese treatment where the scalp rests in flowing warm water. What it does, and how it differs from a halo head spa.",
   "author": "Takashi Iwata",
   "img": "blog/blog-03.jpg",
-  "alt": "A guest lying flat for the head bath as warm water flows over the scalp"
+  "alt": "A guest lying flat for the head bath as warm water flows over the scalp",
+  "publish_at": "2026-08-29T20:00:00+10:00"
  },
  "blog-what-is-marbb": {
   "cat": "treatments",
@@ -60,7 +46,8 @@
   "excerpt": "Nano bubbles small enough to reach into the follicle, cleansing without stripping. How the technology works, and why we chose it.",
   "author": "Takashi Iwata",
   "img": "blog/blog-06.jpg",
-  "alt": "Fine bubbles rising through water — the micro-bubble idea behind marbb"
+  "alt": "Fine bubbles rising through water — the micro-bubble idea behind marbb",
+  "publish_at": "2026-08-22T20:00:00+10:00"
  },
  "blog-what-is-shampoo": {
   "cat": "homecare",
@@ -69,7 +56,8 @@
   "excerpt": "Shampoo is for the scalp, conditioner is for the hair — and most people apply both to the wrong place. How to use each properly.",
   "author": "Takashi Iwata",
   "img": "blog/blog-04.jpg",
-  "alt": "Salon treatment bottles standing together against a warm coral background"
+  "alt": "Salon treatment bottles standing together against a warm coral background",
+  "publish_at": "2026-09-12T20:00:00+10:00"
  },
  "blog-deep-in-treatment": {
   "cat": "treatments",
@@ -78,7 +66,8 @@
   "excerpt": "Heat to carry the treatment in, cooling to seal it back down. How the two stages work, and who it suits best.",
   "author": "Takashi Iwata",
   "img": "blog/blog-08.jpg",
-  "alt": "Glossy brown lengths laid out among soft pink petals"
+  "alt": "Glossy brown lengths laid out among soft pink petals",
+  "publish_at": "2026-09-09T20:00:00+10:00"
  },
  "blog-hair-straightener-damage": {
   "cat": "scalp",
@@ -87,7 +76,8 @@
   "excerpt": "What happens to the cuticle and the protein inside the strand between hot plates — and the temperature that actually suits your hair.",
   "author": "Takashi Iwata",
   "img": "blog/blog-07.jpg",
-  "alt": "Long, straight hair falling smoothly down the back, seen from behind"
+  "alt": "Long, straight hair falling smoothly down the back, seen from behind",
+  "publish_at": "2026-08-26T20:00:00+10:00"
  },
  "blog-colour-perm-damage": {
   "cat": "scalp",
@@ -96,7 +86,8 @@
   "excerpt": "Both work by opening the cuticle and rearranging what is inside. What that costs the hair, and how to care for it afterwards.",
   "author": "Takashi Iwata",
   "img": "blog/blog-14.jpg",
-  "alt": "Smooth, sculpted lengths seen from behind in warm light"
+  "alt": "Smooth, sculpted lengths seen from behind in warm light",
+  "publish_at": "2026-09-02T20:00:00+10:00"
  },
  "blog-why-hair-splits-and-breaks": {
   "cat": "scalp",
@@ -105,7 +96,8 @@
   "excerpt": "Breakage and split ends are both structural failures. What is happening inside the strand, and why a trim is the only real fix.",
   "author": "Takashi Iwata",
   "img": "blog/blog-10.jpg",
-  "alt": "Healthy, glossy hair seen from behind beside green foliage"
+  "alt": "Healthy, glossy hair seen from behind beside green foliage",
+  "publish_at": "2026-09-05T20:00:00+10:00"
  },
  "blog-why-we-chose-yume": {
   "cat": "philosophy",
@@ -114,7 +106,8 @@
   "excerpt": "The basin is not a detail. Why we imported a Japanese shampoo system — and the spirit of omotenashi behind the decision.",
   "author": "Takashi Iwata",
   "img": "blog/blog-03.jpg",
-  "alt": "A guest lying flat for the head bath as warm water flows over the scalp"
+  "alt": "A guest lying flat for the head bath as warm water flows over the scalp",
+  "publish_at": "2026-10-03T20:00:00+10:00"
  },
  "blog-why-we-recommend-monat": {
   "cat": "homecare",
@@ -123,7 +116,8 @@
   "excerpt": "A treatment is ninety minutes; home care is every other day. Why we recommend what we recommend — and why there is never any pressure.",
   "author": "Takashi Iwata",
   "img": "blog/blog-05.jpg",
-  "alt": "Scalp and hair care bottles arranged on pale yellow blocks"
+  "alt": "Scalp and hair care bottles arranged on pale yellow blocks",
+  "publish_at": "2026-09-30T20:00:00+10:00"
  },
  "blog-pre-rinsing-before-shampoo": {
   "cat": "homecare",
@@ -132,7 +126,8 @@
   "excerpt": "Most of the day rinses away before the bottle is even opened. The step almost everyone rushes, and what it changes.",
   "author": "Takashi Iwata",
   "img": "blog/blog-15.jpg",
-  "alt": "A guest's scalp washed at the basin, hands working lather through the hair"
+  "alt": "A guest's scalp washed at the basin, hands working lather through the hair",
+  "publish_at": "2026-09-23T20:00:00+10:00"
  },
  "blog-do-you-need-scalp-scrub": {
   "cat": "homecare",
@@ -141,7 +136,8 @@
   "excerpt": "Isn't shampoo enough? Usually — but not always. What shampoo leaves behind, and when a scalp genuinely needs a reset.",
   "author": "Takashi Iwata",
   "img": "blog/blog-11.jpg",
-  "alt": "Hair follicles seen close up in the scalp, with moisture around the roots"
+  "alt": "Hair follicles seen close up in the scalp, with moisture around the roots",
+  "publish_at": "2026-09-26T20:00:00+10:00"
  },
  "blog-shampoo-technique-from-japan": {
   "cat": "philosophy",
@@ -150,7 +146,8 @@
   "excerpt": "In Japan a shampoo is a discipline — an order, a rhythm, and a reason behind every movement. The technique behind the head spa.",
   "author": "Takashi Iwata",
   "img": "blog/blog-01.jpg",
-  "alt": "A head spa treatment underway on the flat shampoo bed in a darkened room"
+  "alt": "A head spa treatment underway on the flat shampoo bed in a darkened room",
+  "publish_at": "2026-09-19T20:00:00+10:00"
  },
  "blog-what-is-kerasilk": {
   "cat": "treatments",
@@ -159,6 +156,7 @@
   "excerpt": "Not a permanent straightener, and not a repair. What the treatment actually does to the hair, how long it lasts, and who it suits.",
   "author": "Takashi Iwata",
   "img": "blog/blog-07.jpg",
-  "alt": "Long, straight hair falling smoothly down the back, seen from behind"
+  "alt": "Long, straight hair falling smoothly down the back, seen from behind",
+  "publish_at": "2026-08-12T20:00:00+10:00"
  }
 }
